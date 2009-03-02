@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PhTranslateLib", "PhTranslateLib\PhTranslateLib.vcproj", "{CEAFBD8D-60A4-4F5C-AB66-6EE2F3E6D2A1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestApp", "TestApp\TestApp.vcproj", "{209E7219-A2AC-493E-82C2-7069CBF27FAA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CEAFBD8D-60A4-4F5C-AB66-6EE2F3E6D2A1} = {CEAFBD8D-60A4-4F5C-AB66-6EE2F3E6D2A1}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEAFBD8D-60A4-4F5C-AB66-6EE2F3E6D2A1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CEAFBD8D-60A4-4F5C-AB66-6EE2F3E6D2A1}.Debug|Win32.Build.0 = Debug|Win32
+		{CEAFBD8D-60A4-4F5C-AB66-6EE2F3E6D2A1}.Release|Win32.ActiveCfg = Release|Win32
+		{CEAFBD8D-60A4-4F5C-AB66-6EE2F3E6D2A1}.Release|Win32.Build.0 = Release|Win32
+		{209E7219-A2AC-493E-82C2-7069CBF27FAA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{209E7219-A2AC-493E-82C2-7069CBF27FAA}.Debug|Win32.Build.0 = Debug|Win32
+		{209E7219-A2AC-493E-82C2-7069CBF27FAA}.Release|Win32.ActiveCfg = Release|Win32
+		{209E7219-A2AC-493E-82C2-7069CBF27FAA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
