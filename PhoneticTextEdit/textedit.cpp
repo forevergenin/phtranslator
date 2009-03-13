@@ -75,9 +75,12 @@ const QString rsrcPath = ":/images/win";
 TextEdit::TextEdit(QWidget *parent)
     : QMainWindow(parent)
 {
+    textEdit = new CPhoneticTextEdit(this);
+
     setupFileActions();
     setupEditActions();
     setupTextActions();
+    setupTranslationActions();
 
     {
         QMenu *helpMenu = new QMenu(tr("Help"), this);
@@ -86,7 +89,6 @@ TextEdit::TextEdit(QWidget *parent)
         helpMenu->addAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
     }
 
-    textEdit = new CPhoneticTextEdit(this);
     connect(textEdit, SIGNAL(currentCharFormatChanged(const QTextCharFormat &)),
             this, SLOT(currentCharFormatChanged(const QTextCharFormat &)));
     connect(textEdit, SIGNAL(cursorPositionChanged()),
@@ -128,6 +130,8 @@ TextEdit::TextEdit(QWidget *parent)
     connect(textEdit, SIGNAL(copyAvailable(bool)), actionCopy, SLOT(setEnabled(bool)));
 
     connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(clipboardDataChanged()));
+
+    actionTranslateOnTheFly->setChecked(true);
 
     QString initialFile = ":/example.html";
     const QStringList args = QCoreApplication::arguments();
@@ -358,6 +362,54 @@ void TextEdit::setupTextActions()
     comboSize->setCurrentIndex(comboSize->findText(QString::number(QApplication::font()
                                                                    .pointSize())));
 }
+
+void TextEdit::setupTranslationActions()
+{
+    // All these pionters allocated with this parameter will
+    // be deleted automatically by Qt qhen this object goes away.
+    // this object takes their ownership created with this as parameter in new.
+    QToolBar* tb = new QToolBar(this);
+    tb->setAllowedAreas(Qt::TopToolBarArea | Qt::BottomToolBarArea);
+    tb->setWindowTitle(tr("Translate Actions"));
+    addToolBar(tb);
+
+    labelTranslation = new QLabel(tr("&Transliterate to: "), tb);
+    tb->addWidget(labelTranslation);
+
+    comboTranslation = new QComboBox(tb);
+    tb->addWidget(comboTranslation);
+    comboTranslation->addItem(tr("English"));
+    comboTranslation->addItem(tr("Bengali"));
+    comboTranslation->addItem(tr("Hindi"));
+    comboTranslation->addItem(tr("Kannada"));
+    comboTranslation->addItem(tr("Malayalam"));
+    comboTranslation->addItem(tr("Oriya"));
+    comboTranslation->addItem(tr("Punjabi"));
+    comboTranslation->addItem(tr("Sanskrit"));
+    comboTranslation->addItem(tr("Tamil"));
+    comboTranslation->addItem(tr("Telugu"));
+    comboTranslation->addItem(tr("Custom"));
+    connect(comboTranslation, SIGNAL(activated(int)), this, SLOT(TranslationOptionChanged(int)));
+
+    comboTranslation->setCurrentIndex(7);
+    labelTranslation->setBuddy(comboTranslation);
+
+    QMenu *menu = new QMenu(tr("&Translate"), this);
+    menuBar()->addMenu(menu);
+    
+    actionTranslate = new QAction(tr("Trans&late Selected Text"), this);
+    connect(actionTranslate, SIGNAL(triggered()), textEdit, SLOT(TranslateSelectedText()));
+
+    actionTranslateOnTheFly = new QAction(tr("Translate On the &Fly"), this);
+    connect(actionTranslateOnTheFly, SIGNAL(triggered(bool)), textEdit, SLOT(TranslateOnTheFly(bool)));
+
+    actionTranslateOnTheFly->setCheckable(true);
+
+    menu->addAction(actionTranslate);
+    menu->addSeparator();
+    menu->addAction(actionTranslateOnTheFly);
+}
+
 
 bool TextEdit::load(const QString &f)
 {
@@ -625,6 +677,7 @@ void TextEdit::textAlign(QAction *a)
         textEdit->setAlignment(Qt::AlignJustify);
 }
 
+
 void TextEdit::currentCharFormatChanged(const QTextCharFormat &format)
 {
     fontChanged(format.font());
@@ -633,6 +686,16 @@ void TextEdit::currentCharFormatChanged(const QTextCharFormat &format)
 
 void TextEdit::cursorPositionChanged()
 {
+    // Update the Style of text in the ComboBox
+    QTextCursor cursor = textEdit->textCursor();
+    if (cursor.currentList()) 
+    {
+        QTextListFormat listFmt = cursor.currentList()->format();
+        this->comboStyle->setCurrentIndex(abs(listFmt.style())); // A type of List Text
+    }
+    else 
+        this->comboStyle->setCurrentIndex(0); // Standard Text
+    
     alignmentChanged(textEdit->alignment());
 }
 
@@ -686,3 +749,8 @@ void TextEdit::alignmentChanged(Qt::Alignment a)
     }
 }
 
+void TextEdit::TranslationOptionChanged(int Option)
+{
+    int i = comboTranslation->currentIndex();
+    OutputDebugString(L"TranslationOptionChanged");
+}
