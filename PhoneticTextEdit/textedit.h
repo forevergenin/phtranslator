@@ -51,6 +51,9 @@
 #include <QtGui/QTextCursor>
 #include <QtGui/QMessageBox>
 #include <QtGui/QAction>
+#include <QtGui/QTextDocumentFragment>
+#include <QtXml/QDomDocument>
+#include <QtXml/QDomNodeList>
 #include <Windows.h>
 
 QT_FORWARD_DECLARE_CLASS(QAction)
@@ -105,7 +108,7 @@ protected:
     }
     inline QString Replace(QString str) const
     {
-        return str.toCaseFolded();
+        return "x_" + str.toCaseFolded();
     }
     inline int GetCurrentWordStartPos() const
     {
@@ -236,9 +239,31 @@ private slots:
     }
     void TranslateSelectedText()
     {
-         QMessageBox msgBox;
-         msgBox.setText("Translate Selected Text.");
-         msgBox.exec();        
+        QTextCursor tc = textCursor();
+        OutputDebugString(tc.selection().toHtml().toStdWString().c_str());
+
+        QDomDocument selDoc;
+        if(!selDoc.setContent(tc.selection().toHtml()))
+        {
+            OutputDebugString(L"\nUnable to Set Content !!");
+            return;
+        }
+        
+        QString str;
+        QDomNodeList selNodeList = selDoc.elementsByTagName("span");
+        for(int i=0, nMax = selNodeList.count(); i < nMax; ++i)
+        {
+            QDomNode& selNode = selNodeList.at(i);
+            //str += "\nName:"+selNodeList.at(i).childNodes().at(0).nodeName() +" Value:"+selNodeList.at(i).childNodes().at(0).nodeValue();
+            for(int nChild=0, nChildMax = selNode.childNodes().count(); nChild < nChildMax; ++nChild)
+            {
+                QDomNode& textNode = selNode.childNodes().at(nChild);
+                textNode.setNodeValue(Replace(textNode.nodeValue()));
+            }
+        }
+
+        tc.deleteChar();
+        tc.insertHtml(selDoc.toString(-1));        
     }
 private:
     // Called from Constructor to initialize

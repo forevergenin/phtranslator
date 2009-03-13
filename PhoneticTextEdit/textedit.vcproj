@@ -167,7 +167,7 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="true"
 				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
-				AdditionalDependencies="e:\Qt\2009.01\qt\lib\qtmaind.lib e:\Qt\2009.01\qt\lib\QtGuid4.lib e:\Qt\2009.01\qt\lib\QtCored4.lib"
+				AdditionalDependencies="e:\Qt\2009.01\qt\lib\qtmaind.lib e:\Qt\2009.01\qt\lib\QtGuid4.lib e:\Qt\2009.01\qt\lib\QtCored4.lib e:\Qt\2009.01\qt\lib\QtXmld4.lib"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="e:\Qt\2009.01\qt\lib,e:\Qt\2009.01\qt\lib"
 				GenerateDebugInformation="true"
@@ -253,18 +253,6 @@
 			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}"
 			>
 			<File
-				RelativePath="tmp\moc\release_shared\moc_textedit.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
 				RelativePath="tmp\moc\debug_shared\moc_textedit.cpp"
 				>
 				<FileConfiguration
@@ -277,7 +265,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="tmp\rcc\release_shared\qrc_textedit.cpp"
+				RelativePath="tmp\moc\release_shared\moc_textedit.cpp"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
@@ -300,6 +288,18 @@
 					/>
 				</FileConfiguration>
 			</File>
+			<File
+				RelativePath="tmp\rcc\release_shared\qrc_textedit.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
@@ -308,15 +308,11 @@
 			ParseFiles="false"
 			>
 			<File
-				RelativePath="images\win\editcopy.png"
-				>
-			</File>
-			<File
 				RelativePath="images\mac\editcopy.png"
 				>
 			</File>
 			<File
-				RelativePath="images\win\editcut.png"
+				RelativePath="images\win\editcopy.png"
 				>
 			</File>
 			<File
@@ -324,7 +320,7 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\editpaste.png"
+				RelativePath="images\win\editcut.png"
 				>
 			</File>
 			<File
@@ -332,11 +328,15 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\editredo.png"
+				RelativePath="images\win\editpaste.png"
 				>
 			</File>
 			<File
 				RelativePath="images\mac\editredo.png"
+				>
+			</File>
+			<File
+				RelativePath="images\win\editredo.png"
 				>
 			</File>
 			<File
@@ -352,11 +352,11 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\exportpdf.png"
+				RelativePath="images\mac\exportpdf.png"
 				>
 			</File>
 			<File
-				RelativePath="images\mac\exportpdf.png"
+				RelativePath="images\win\exportpdf.png"
 				>
 			</File>
 			<File
@@ -368,19 +368,19 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\fileopen.png"
-				>
-			</File>
-			<File
 				RelativePath="images\mac\fileopen.png"
 				>
 			</File>
 			<File
-				RelativePath="images\win\fileprint.png"
+				RelativePath="images\win\fileopen.png"
 				>
 			</File>
 			<File
 				RelativePath="images\mac\fileprint.png"
+				>
+			</File>
+			<File
+				RelativePath="images\win\fileprint.png"
 				>
 			</File>
 			<File
@@ -396,19 +396,19 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\textbold.png"
-				>
-			</File>
-			<File
 				RelativePath="images\mac\textbold.png"
 				>
 			</File>
 			<File
-				RelativePath="images\win\textcenter.png"
+				RelativePath="images\win\textbold.png"
 				>
 			</File>
 			<File
 				RelativePath="images\mac\textcenter.png"
+				>
+			</File>
+			<File
+				RelativePath="images\win\textcenter.png"
 				>
 			</File>
 			<File
@@ -438,19 +438,19 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="images\win\textitalic.png"
-				>
-			</File>
-			<File
 				RelativePath="images\mac\textitalic.png"
 				>
 			</File>
 			<File
-				RelativePath="images\win\textjustify.png"
+				RelativePath="images\win\textitalic.png"
 				>
 			</File>
 			<File
 				RelativePath="images\mac\textjustify.png"
+				>
+			</File>
+			<File
+				RelativePath="images\win\textjustify.png"
 				>
 			</File>
 			<File
@@ -462,15 +462,11 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\textright.png"
-				>
-			</File>
-			<File
 				RelativePath="images\mac\textright.png"
 				>
 			</File>
 			<File
-				RelativePath="images\win\textunder.png"
+				RelativePath="images\win\textright.png"
 				>
 			</File>
 			<File
@@ -478,7 +474,7 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\zoomin.png"
+				RelativePath="images\win\textunder.png"
 				>
 			</File>
 			<File
@@ -486,11 +482,15 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\zoomout.png"
+				RelativePath="images\win\zoomin.png"
 				>
 			</File>
 			<File
 				RelativePath="images\mac\zoomout.png"
+				>
+			</File>
+			<File
+				RelativePath="images\win\zoomout.png"
 				>
 			</File>
 		</Filter>
