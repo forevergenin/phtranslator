@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Sun Mar 15 17:30:01 2009
+/* at Mon Mar 16 22:36:37 2009
  */
 /* Compiler settings for .\PhTranslateCOM.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)

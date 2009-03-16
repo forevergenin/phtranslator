@@ -98,6 +98,9 @@ private slots:
 
 	void changeStyle(const QString&);
 
+    void LoadCustomPhTable();
+    void SaveCustomPhTable();
+
     void clipboardDataChanged();
     void about();
     void printPreview(QPrinter *);
@@ -107,6 +110,7 @@ private:
     void fontChanged(const QFont &f);
     void colorChanged(const QColor &c);
     void alignmentChanged(Qt::Alignment a);
+    void* TextEdit::GetActiveTranslator(int Option); // Returns the Translator based on the COMBObox Index
 
     QAction *actionSave,
         *actionTextBold,
@@ -124,7 +128,9 @@ private:
         *actionPaste,
         *actionTranslate,
         *actionReverseTranslate,
-        *actionTranslateOnTheFly;
+        *actionTranslateOnTheFly,
+        *actionSaveCustomPhTable,
+        *actionLoadCustomPhTable;
 
     QComboBox *comboStyle;
     QFontComboBox *comboFont;
@@ -137,6 +143,8 @@ private:
     QToolBar *tb;
     QString fileName;
     CPhoneticTextEdit *textEdit;
+    
+    void* m_pCustomTranslator;
 };
 
 #endif

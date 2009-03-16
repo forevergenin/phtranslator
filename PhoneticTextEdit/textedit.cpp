@@ -66,6 +66,8 @@
 #include <QtGui/QMessageBox>
 #include <QtGui/QPrintPreviewDialog>
 #include <QtGui/QStyleFactory>
+#include <QtGui/QFileDialog>
+#include <QtCore/QStringList>
 
 #include "PhTranslateLib.h"
 #include "norwegianwoodstyle.h"
@@ -77,7 +79,7 @@ const QString rsrcPath = ":/images/win";
 #endif
 
 TextEdit::TextEdit(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent), m_pCustomTranslator (NULL)
 {
     textEdit = new CPhoneticTextEdit(this);
 
@@ -153,6 +155,9 @@ void TextEdit::closeEvent(QCloseEvent *e)
         e->accept();
     else
         e->ignore();
+
+    ::ReleaseCustomTranslator(m_pCustomTranslator);
+    m_pCustomTranslator = NULL;
 }
 
 void TextEdit::setupFileActions()
@@ -407,14 +412,23 @@ void TextEdit::setupTranslationActions()
     actionTranslate = new QAction(tr("Trans&late Selected Text"), this);
     connect(actionTranslate, SIGNAL(triggered()), textEdit, SLOT(TranslateSelectedText()));
 
-    actionTranslateOnTheFly = new QAction(tr("Translate On the &Fly"), this);
+    actionTranslateOnTheFly = new QAction(tr("Translate &Words as I type them"), this);
     connect(actionTranslateOnTheFly, SIGNAL(triggered(bool)), textEdit, SLOT(TranslateOnTheFly(bool)));
 
     actionTranslateOnTheFly->setCheckable(true);
 
+    actionLoadCustomPhTable = new QAction(tr("Load Custom &Phonetic Table"), this);
+    connect(actionLoadCustomPhTable, SIGNAL(triggered()), this, SLOT(LoadCustomPhTable()));
+
+    actionSaveCustomPhTable = new QAction(tr("Save &Phonetic Table"), this);
+    connect(actionSaveCustomPhTable, SIGNAL(triggered()), this, SLOT(SaveCustomPhTable()));
+
     menu->addAction(actionTranslate);
     menu->addSeparator();
     menu->addAction(actionTranslateOnTheFly);
+    menu->addSeparator();
+    menu->addAction(actionLoadCustomPhTable);
+    menu->addAction(actionSaveCustomPhTable);
 
 	TranslationOptionChanged(8);	// We need to make this explicit call because the Siganls will not be active at this point yet.
 }
@@ -737,9 +751,7 @@ void TextEdit::clipboardDataChanged()
 
 void TextEdit::about()
 {
-    QMessageBox::about(this, tr("About"), tr("This example demonstrates Qt's "
-        "rich text editing facilities in action, providing an example "
-        "document for you to experiment with."));
+    QMessageBox::about(this, tr("About"), tr("PhWordpad is a RichTextEditing application based on Phonetic Translation Library"));
 }
 
 void TextEdit::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
@@ -780,25 +792,51 @@ void TextEdit::alignmentChanged(Qt::Alignment a)
     }
 }
 
-void TextEdit::TranslationOptionChanged(int Option)
+#define CUSTOMTABLE_OPTION 11
+
+void* TextEdit::GetActiveTranslator(int Option)
 {
 	switch(Option)
 	{
-	case 0: textEdit->SetTranslator(NULL); break;
-	case 1: textEdit->SetTranslator(GetBengaliTranslator()); break;
-	case 2: textEdit->SetTranslator(GetGujaratiTranslator()); break;
-	case 3: textEdit->SetTranslator(GetHindiTranslator()); break;
-	case 4: textEdit->SetTranslator(GetKannadaTranslator()); break;
-	case 5: textEdit->SetTranslator(GetMalayalamTranslator()); break;
-	case 6: textEdit->SetTranslator(GetOriyaTranslator()); break;
-	case 7: textEdit->SetTranslator(GetPunjabiTranslator()); break;
-	case 8: textEdit->SetTranslator(GetSanskritTranslator()); break;
-	case 9: textEdit->SetTranslator(GetTamilTranslator()); break;
-	case 10: textEdit->SetTranslator(GetTeluguTranslator()); break;
-	case 11: break;
-	default: break;
-	}
-    OutputDebugString(L"TranslationOptionChanged");
+	case 0: return NULL;
+	case 1: return GetBengaliTranslator();
+	case 2: return GetGujaratiTranslator();
+	case 3: return GetHindiTranslator();
+	case 4: return GetKannadaTranslator();
+	case 5: return GetMalayalamTranslator(); 
+	case 6: return GetOriyaTranslator();
+	case 7: return GetPunjabiTranslator(); 
+	case 8: return GetSanskritTranslator();
+	case 9: return GetTamilTranslator();
+	case 10: return GetTeluguTranslator();
+    case CUSTOMTABLE_OPTION: return m_pCustomTranslator;
+    }
+    return NULL;
+}
+
+void TextEdit::TranslationOptionChanged(int Option)
+{
+    void* pTranslator = GetActiveTranslator(this->comboTranslation->currentIndex());
+
+    if(Option == CUSTOMTABLE_OPTION && pTranslator == NULL)
+    {
+        LoadCustomPhTable();
+        
+        pTranslator = m_pCustomTranslator;
+
+        if(m_pCustomTranslator == NULL)
+        {
+             QMessageBox msgBox;
+             msgBox.setText(tr("No Active Custom Phonetic Table Found. Text will not be trasnlated till you load one."));
+             msgBox.setInformativeText(tr("Tip: Option to load a custom table is available in the <i>Translate</i> Menu Options"));
+             msgBox.setStandardButtons(QMessageBox::Ok);             
+             msgBox.setIcon(QMessageBox::Warning);
+             msgBox.exec();
+        }
+
+    }
+
+    textEdit->SetTranslator(pTranslator);
 }
 
 void TextEdit::changeStyle(const QString& strStyle)
@@ -809,4 +847,76 @@ void TextEdit::changeStyle(const QString& strStyle)
 		QApplication::setStyle(QStyleFactory::create(strStyle));
 
 	QApplication::setPalette(QApplication::style()->standardPalette());
+}
+
+
+void TextEdit::LoadCustomPhTable()
+{     
+    QStringList filters; 
+    filters << "PhoneticTable Files (*.PhTable)"         
+         << "Any files (*)";
+
+    QFileDialog OpenFileDlg;
+
+    OpenFileDlg.setFilters(filters);
+    OpenFileDlg.setFileMode(QFileDialog::ExistingFile);
+
+    if(OpenFileDlg.exec())
+    {
+        QString fileName = OpenFileDlg.selectedFiles()[0];
+
+        void* pTranslator = ::CreateCustomTranslator(fileName.toStdString().c_str());
+
+        if(pTranslator)
+        {
+            ::ReleaseCustomTranslator(m_pCustomTranslator);
+            m_pCustomTranslator = pTranslator;
+
+            if(this->comboTranslation->currentIndex() != CUSTOMTABLE_OPTION) 
+                this->comboTranslation->setCurrentIndex(CUSTOMTABLE_OPTION);
+        }
+        else
+        {
+             QMessageBox msgBox;
+             msgBox.setText("Unable to Load PhoneticTable");
+             msgBox.setInformativeText(fileName);
+             msgBox.setStandardButtons(QMessageBox::Ok);
+             msgBox.setIcon(QMessageBox::Critical);
+             msgBox.exec();
+        }
+    }
+}
+
+void TextEdit::SaveCustomPhTable()
+{     
+    void* pTranslator = GetActiveTranslator(this->comboTranslation->currentIndex());
+
+    if(pTranslator == NULL)
+    {
+         QMessageBox msgBox;
+         msgBox.setText(tr("No Active Custom Phonetic Table Found."));
+         msgBox.setInformativeText(tr("Tip: First Load a custom table using the <i>Load Custom Table</i> Menu Options."));
+         msgBox.setStandardButtons(QMessageBox::Ok);
+         msgBox.setIcon(QMessageBox::Warning);
+         msgBox.exec();
+        return;
+    }
+     
+    QString fileName = QFileDialog::getSaveFileName(this,
+                                 tr("Save File"),
+                                 ".",
+                                 tr("PhoneticTable Files (*.PhTable)"));
+    if(!fileName.isEmpty())
+    {
+
+        if(false == ::SavePhoneticTable(pTranslator, fileName.toStdString().c_str()))
+        {
+             QMessageBox msgBox;
+             msgBox.setText("Unable to Save PhoneticTable");
+             msgBox.setInformativeText(fileName);
+             msgBox.setStandardButtons(QMessageBox::Ok);             
+             msgBox.setIcon(QMessageBox::Critical);
+             msgBox.exec();
+        }
+    }
 }

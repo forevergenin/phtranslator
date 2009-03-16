@@ -10,7 +10,7 @@
 #include <QtXml/QDomNodeList>
 #include <QtGui/QKeyEvent>
 #include "PhTranslateLib.h"
-#include <Windows.h>
+//#include <Windows.h>
 
 class CPhoneticTextEdit : public QTextEdit
 {        
@@ -24,10 +24,14 @@ protected:
 	void*		m_pTranslator;				// The Translator to be used for Translations
 	bool		m_bTranslateOnTheFly;		// if true each word is translated as it gets completed. If false, words will be translated only on demand.
 
+    bool        m_bIgnoreSequence;
+
     // Overloaded to get a peek at the Keyboard event
     inline virtual void keyPressEvent(QKeyEvent *e)
-    {
-		if(e->text().isEmpty() == false)
+    {       
+        m_bIgnoreSequence = (e->matches(QKeySequence::Redo) || e->matches(QKeySequence::Undo));
+            
+		if(m_bIgnoreSequence == false && e->text().isEmpty() == false)
 			m_nCurInputWordStartPos = GetCurrentWordStartPos();
         ////OutputDebugString(L"\nKeyPress at ");
         ////Print(m_nCurInputWordStartPos);
@@ -48,7 +52,7 @@ protected:
         QString qstr;
         qstr.setNum(num, 10);
         std::wstring str = qstr.toStdWString();
-        OutputDebugString(str.c_str());
+        //OutputDebugString(str.c_str());
     }
 
     /////////////////////////////////////////////////
@@ -59,9 +63,9 @@ protected:
         tc.select(QTextCursor::WordUnderCursor);
         return tc.selectedText();
     }
-    inline QString TranslateString(QString str) const
+    inline QString TranslateString(const QString& str) const
     {
-		if(m_pTranslator == NULL) return str;
+		if(m_pTranslator == NULL) return str;        
 
 		return QString::fromStdWString(Translate(m_pTranslator, str.toStdWString().c_str()));
     }
@@ -133,18 +137,18 @@ protected:
 
             QTextCursor tc = textCursor();
 
-			tc.setPosition(Pos);
-			tc.select(QTextCursor::WordUnderCursor);
-
-			//tc.beginEditBlock();
+			tc.beginEditBlock();
 			{
+			    tc.setPosition(Pos);
+			    tc.select(QTextCursor::WordUnderCursor);
+
 				QString str = TranslateString(tc.selectedText()); 
 				QTextCharFormat tcf = tc.charFormat();
 
 				tc.deleteChar();
 				tc.insertText(str, tcf);
 			}
-			//tc.endEditBlock();
+			tc.endEditBlock();
 
         m_bInsideTranslation = false;
     }
@@ -154,7 +158,7 @@ private slots:
     // Subscribed in the Constructor
     void cursorPositionChanged()
     {
-        if(m_bInsideTranslation == true) return;
+        if(m_bInsideTranslation == true || m_bIgnoreSequence == true) return;
 
         int nCurWordPos = (m_nCurEditingWordStartPos >=0) ? GetCurrentWordStartPos() : -1;
         if(nCurWordPos != m_nCurEditingWordStartPos)
@@ -222,13 +226,13 @@ private slots:
             }
         }
 
-        OutputDebugString(L"\n");
-        OutputDebugString(selDoc.toString().toStdWString().c_str());
+        //OutputDebugString(L"\n");
+        //OutputDebugString(selDoc.toString().toStdWString().c_str());
 
-		//tc.beginEditBlock();
+		tc.beginEditBlock();
 			tc.deleteChar();
 			tc.insertHtml(selDoc.toString(-1));
-		//tc.endEditBlock();
+		tc.endEditBlock();
 
 		m_bInsideTranslation = false;
     }
@@ -257,7 +261,8 @@ public:
         m_bInsideTranslation(false),
         m_pTranslateAction(0),
 		m_pTranslator(0),
-		m_bTranslateOnTheFly(true)
+		m_bTranslateOnTheFly(true),
+        m_bIgnoreSequence(true)
     {
         Init();
     }
@@ -269,7 +274,8 @@ public:
         m_bInsideTranslation(false),
         m_pTranslateAction(0),
 		m_pTranslator(0),
-		m_bTranslateOnTheFly(true)
+		m_bTranslateOnTheFly(true),
+        m_bIgnoreSequence(true)
     { 
         Init();
     }

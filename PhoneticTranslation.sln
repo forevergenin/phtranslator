@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTestApp", "DotNetTest
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestVBScript", "TestVBScript\TestVBScript.vcproj", "{1124140C-0159-41DF-91BD-CFF7037C4A9B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "textedit", "PhoneticTextEdit\textedit.vcproj", "{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PhWordpad", "PhoneticTextEdit\textedit.vcproj", "{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,8 +109,8 @@ Global
 		{8CB6B1D0-472B-446C-B91F-3C760DADE645}.Static Debug|Win32.ActiveCfg = Debug|Any CPU
 		{8CB6B1D0-472B-446C-B91F-3C760DADE645}.Static Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CB6B1D0-472B-446C-B91F-3C760DADE645}.Static Release|Any CPU.Build.0 = Release|Any CPU
-		{8CB6B1D0-472B-446C-B91F-3C760DADE645}.Static Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{8CB6B1D0-472B-446C-B91F-3C760DADE645}.Static Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8CB6B1D0-472B-446C-B91F-3C760DADE645}.Static Release|Mixed Platforms.ActiveCfg = Static Release|Any CPU
+		{8CB6B1D0-472B-446C-B91F-3C760DADE645}.Static Release|Mixed Platforms.Build.0 = Static Release|Any CPU
 		{8CB6B1D0-472B-446C-B91F-3C760DADE645}.Static Release|Win32.ActiveCfg = Release|Any CPU
 		{1124140C-0159-41DF-91BD-CFF7037C4A9B}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{1124140C-0159-41DF-91BD-CFF7037C4A9B}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
@@ -148,8 +148,8 @@ Global
 		{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}.Static Debug|Win32.ActiveCfg = Debug|Win32
 		{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}.Static Debug|Win32.Build.0 = Debug|Win32
 		{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}.Static Release|Any CPU.ActiveCfg = Release|Win32
-		{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}.Static Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}.Static Release|Mixed Platforms.Build.0 = Release|Win32
+		{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}.Static Release|Mixed Platforms.ActiveCfg = Static Release|Win32
+		{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}.Static Release|Mixed Platforms.Build.0 = Static Release|Win32
 		{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}.Static Release|Win32.ActiveCfg = Release|Win32
 		{DA1795AF-B247-3DD3-8E85-49B39F6B0ED5}.Static Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
