@@ -1,0 +1,26 @@
+HKCR
+{
+	PhTranslation.BengaliTranslator.1 = s 'BengaliTranslator Class'
+	{
+		CLSID = s '{5AA852E3-965D-4DCA-8B15-CB64125BE3D6}'
+	}
+	PhTranslation.BengaliTranslator = s 'BengaliTranslator Class'
+	{
+		CLSID = s '{5AA852E3-965D-4DCA-8B15-CB64125BE3D6}'
+		CurVer = s 'PhTranslation.BengaliTranslator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5AA852E3-965D-4DCA-8B15-CB64125BE3D6} = s 'BengaliTranslator Class'
+		{
+			ProgID = s 'PhTranslation.BengaliTranslator.1'
+			VersionIndependentProgID = s 'PhTranslation.BengaliTranslator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ABDE916-4C9A-4866-815F-B4A26CB7347F}'
+		}
+	}
+}

@@ -1,0 +1,26 @@
+HKCR
+{
+	PhTranslation.CustomTranslator.1 = s 'CustomTranslator Class'
+	{
+		CLSID = s '{5D6B9596-63F2-4989-9B43-A8B79C28C0AF}'
+	}
+	PhTranslation.CustomTranslator = s 'CustomTranslator Class'
+	{
+		CLSID = s '{5D6B9596-63F2-4989-9B43-A8B79C28C0AF}'
+		CurVer = s 'PhTranslation.CustomTranslator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5D6B9596-63F2-4989-9B43-A8B79C28C0AF} = s 'CustomTranslator Class'
+		{
+			ProgID = s 'PhTranslation.CustomTranslator.1'
+			VersionIndependentProgID = s 'PhTranslation.CustomTranslator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ABDE916-4C9A-4866-815F-B4A26CB7347F}'
+		}
+	}
+}

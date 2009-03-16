@@ -1,0 +1,26 @@
+HKCR
+{
+	PhTranslation.PunjabiTranslator.1 = s 'PunjabiTranslator Class'
+	{
+		CLSID = s '{B15CD237-A8A6-4C74-9D98-D16CE7451009}'
+	}
+	PhTranslation.PunjabiTranslator = s 'PunjabiTranslator Class'
+	{
+		CLSID = s '{B15CD237-A8A6-4C74-9D98-D16CE7451009}'
+		CurVer = s 'PhTranslation.PunjabiTranslator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B15CD237-A8A6-4C74-9D98-D16CE7451009} = s 'PunjabiTranslator Class'
+		{
+			ProgID = s 'PhTranslation.PunjabiTranslator.1'
+			VersionIndependentProgID = s 'PhTranslation.PunjabiTranslator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ABDE916-4C9A-4866-815F-B4A26CB7347F}'
+		}
+	}
+}

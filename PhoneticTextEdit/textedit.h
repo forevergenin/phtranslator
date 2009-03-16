@@ -51,7 +51,7 @@
 #include <QtGui/QComboBox>
 #include <QtGui/QFontComboBox>
 
-#include "PhoneticTextEdit.h"
+#include "PhTextEditor.h"
 
 class TextEdit : public QMainWindow
 {
@@ -68,6 +68,7 @@ private:
     void setupEditActions();
     void setupTextActions();
     void setupTranslationActions();
+	void setupViewActions();
     bool load(const QString &f);
     bool maybeSave();
     void setCurrentFileName(const QString &fileName);
@@ -94,6 +95,8 @@ private slots:
 
     void currentCharFormatChanged(const QTextCharFormat &format);
     void cursorPositionChanged();
+
+	void changeStyle(const QString&);
 
     void clipboardDataChanged();
     void about();
@@ -128,6 +131,8 @@ private:
     QComboBox *comboSize;
     QComboBox *comboTranslation;
     QLabel* labelTranslation;
+    QComboBox *comboThemes;
+    QLabel* labelThemes;
 
     QToolBar *tb;
     QString fileName;

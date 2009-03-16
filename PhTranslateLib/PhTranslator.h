@@ -23,7 +23,7 @@ namespace PhTranslation
 
     struct DigitDef
     {
-        char phRep[1]; // The English Phonetic Represenation of the Digit
+        char phRep[8]; // The English Phonetic Represenation of the Digit
         tUnicode uCode; // The Unicode character code of the Digit
     };
 
@@ -61,8 +61,9 @@ namespace PhTranslation
         unsigned int ExtractMatchingDigit(const char* sz, const DigitDef* &pRetVal) const;
         unsigned int ExtractMatchingSpecialSymbol(const char* sz, const SpecialSymbolDef* &pRetVal) const;
 
-        PhTranslator(void);
     public:
+        PhTranslator(void);
+
         ~PhTranslator(void);
 
         // Constructor
@@ -82,14 +83,44 @@ namespace PhTranslation
                     const SpecialSymbolDef* pSpSymbols, int nSPSize,
                     const tUnicode Halant);
 
+		// Loads the PhoneticTable from the specified file. This data will be used in the translations later on.
+		// In case of load failures, the state of the tables is undefined and the later translations may not yield correct results.
+		// Inputs:
+		//    szFilePath: Path of the file that contains the PhoneticTable to be loaded.
+		// Return value indicates the success or failure.
+		bool LoadPhoneticTable(const char* szFilePath);
+
+		// Saves the PhoneticTable to the specified file. This file can used to create Custom Translators later on.
+		// Inputs:
+		//    szFilePath: Path of the file the PhoneticTable should be saved to.
+		// Return value indicates the success or failure.
+		bool SavePhoneticTable(const char* strFilePath) const;
+
         // Translates the given English string Phonetically
         // Inputs:
         //      sz: The String in Phonetic English
         // Outputs:
-        //      retStr: The Unicode representation
-        bool Translate(const char* sz, std::wstring& retStr) const;
+        //      retStr: The Unicode representation. 
+		//      If retStr is not empty on entry, translted string will be appended to it at the end automatically.
+		//		If there are any untranslatable chracters in the input, they will be output as is.
+		// Return value indicates the length of the new Unicode string generated as the result of translation.
+		//		If retStr is empty on entry, return value would be same as the length of retStr upon return.
+		//		If retStr is non-empty on entry, return value just indicates the length of the portion newly added, not the total string.
+        int Translate(const char* sz, std::wstring& retStr) const;
 
-        void PrintTables();
+        // Translates the given English string Phonetically.
+		// If the input contains any Unicode characters already, they will be inserted into the output string as is.
+        // Inputs:
+        //      sz: The String in Phonetic English
+        // Outputs:
+        //      retStr: The Unicode representation
+		//      If retStr is not empty on entry, translted string will be appended to it at the end automatically.
+		//		If there are any untranslatable chracters in the input, they will be output as is.
+		// Return value indicates the length of the new Unicode string generated as the result of translation.
+		//		If retStr is empty on entry, return value would be same as the length of retStr upon return.
+		//		If retStr is non-empty on entry, return value just indicates the length of the portion newly added, not the total string.
+        int Translate(const wchar_t* sz, std::wstring& retStr) const;
+
     };
 
 } // namespace PhTranslation

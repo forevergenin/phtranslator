@@ -14,7 +14,7 @@
 // See TestApp.cpp for the implementation of this class
 //
 
-class CTestAppApp : public CWinAppEx
+class CTestAppApp : public CWinApp
 {
 public:
 	CTestAppApp();

@@ -1,0 +1,26 @@
+HKCR
+{
+	PhTranslation.TeluguTranslator.1 = s 'TeluguTranslator Class'
+	{
+		CLSID = s '{A4E71D2A-480A-4CF0-A4A8-DCBFB3F99F32}'
+	}
+	PhTranslation.TeluguTranslator = s 'TeluguTranslator Class'
+	{
+		CLSID = s '{A4E71D2A-480A-4CF0-A4A8-DCBFB3F99F32}'
+		CurVer = s 'PhTranslation.TeluguTranslator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A4E71D2A-480A-4CF0-A4A8-DCBFB3F99F32} = s 'TeluguTranslator Class'
+		{
+			ProgID = s 'PhTranslation.TeluguTranslator.1'
+			VersionIndependentProgID = s 'PhTranslation.TeluguTranslator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ABDE916-4C9A-4866-815F-B4A26CB7347F}'
+		}
+	}
+}

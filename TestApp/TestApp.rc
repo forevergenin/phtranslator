@@ -128,13 +128,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "TODO: <Company name>"
-            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "CompanyName", "CineFx Labs"
+            VALUE "FileDescription", "Phonetic Translation Test Application"
             VALUE "FileVersion", "1.0.0.1"
             VALUE "InternalName", "TestApp.exe"
-            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "LegalCopyright", "(c) CineFx Digital Media Pvt Ltd.  All rights reserved."
             VALUE "OriginalFilename", "TestApp.exe"
-            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductName", "PhTranslateTestApp"
             VALUE "ProductVersion", "1.0.0.1"
         END
     END

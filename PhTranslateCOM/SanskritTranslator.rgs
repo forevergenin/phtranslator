@@ -1,0 +1,26 @@
+HKCR
+{
+	PhTranslation.SanskritTranslator.1 = s 'SanskritTranslator Class'
+	{
+		CLSID = s '{F075931B-17FF-491A-A3BB-7FFF6B5A31B5}'
+	}
+	PhTranslation.SanskritTranslator = s 'SanskritTranslator Class'
+	{
+		CLSID = s '{F075931B-17FF-491A-A3BB-7FFF6B5A31B5}'
+		CurVer = s 'PhTranslation.SanskritTranslator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F075931B-17FF-491A-A3BB-7FFF6B5A31B5} = s 'SanskritTranslator Class'
+		{
+			ProgID = s 'PhTranslation.SanskritTranslator.1'
+			VersionIndependentProgID = s 'PhTranslation.SanskritTranslator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ABDE916-4C9A-4866-815F-B4A26CB7347F}'
+		}
+	}
+}

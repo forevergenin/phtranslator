@@ -1,0 +1,26 @@
+HKCR
+{
+	PhTranslation.OriyaTranslator.1 = s 'OriyaTranslator Class'
+	{
+		CLSID = s '{E05BF268-26FE-49F2-AD1F-9CFB97B7F5FA}'
+	}
+	PhTranslation.OriyaTranslator = s 'OriyaTranslator Class'
+	{
+		CLSID = s '{E05BF268-26FE-49F2-AD1F-9CFB97B7F5FA}'
+		CurVer = s 'PhTranslation.OriyaTranslator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E05BF268-26FE-49F2-AD1F-9CFB97B7F5FA} = s 'OriyaTranslator Class'
+		{
+			ProgID = s 'PhTranslation.OriyaTranslator.1'
+			VersionIndependentProgID = s 'PhTranslation.OriyaTranslator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ABDE916-4C9A-4866-815F-B4A26CB7347F}'
+		}
+	}
+}

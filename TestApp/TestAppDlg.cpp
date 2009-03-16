@@ -103,7 +103,7 @@ BOOL CTestAppDlg::OnInitDialog()
 
     OnBnClickedButtonSetfont();
 
-    m_pTranslator = CreateTeluguTranslator();
+    //m_pTranslator = GetTeluguTranslator();
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -165,10 +165,17 @@ void CTestAppDlg::OnBnClickedOk()
 
     CStringA strAnsi(strTextBox, strTextBox.GetLength());
 
-    std::wstring strUnicode;
-    Translate(m_pTranslator, strAnsi, strUnicode);
+	// Get the size of the translated buffer to be allocated
+    void* pHint = NULL;
+    int nBufLen = GetTranslatedBufferLength(GetTeluguTranslator(), strAnsi, &pHint);
+	wchar_t* pszUnicode = new wchar_t[nBufLen];
+
+	// Get the buffer
+	GetTranslatedBuffer(pszUnicode, &pHint);
     
-    this->SetDlgItemTextW(IDC_EDIT_OUTPUT, strUnicode.c_str());
+    this->SetDlgItemTextW(IDC_EDIT_OUTPUT, pszUnicode);
+
+	delete pszUnicode;
 }
 
 void CTestAppDlg::OnBnClickedCancel()
@@ -179,7 +186,7 @@ void CTestAppDlg::OnBnClickedCancel()
 
 void CTestAppDlg::OnClose()
 {
-    ReleaseTranslator(m_pTranslator);
+   // ReleaseTranslator(m_pTranslator);
 
     CDialog::OnClose();
 }

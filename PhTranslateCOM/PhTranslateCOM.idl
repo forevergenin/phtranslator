@@ -1,0 +1,122 @@
+// PhTranslateCOM.idl : IDL source for PhTranslateCOM
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PhTranslateCOM.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+[
+	object,
+	uuid(581A99EE-6C43-42F2-9A48-0CE5EE15C469),
+	dual,
+	nonextensible,
+	helpstring("IPhTranslator Interface"),
+	pointer_default(unique)
+]
+interface IPhTranslator : IDispatch{
+	[id(1), helpstring("method Translate")] HRESULT Translate([in] BSTR inPhoneticString, [out,retval] BSTR* pTranslatedString);
+	[id(2), helpstring("method SavePhoneticTable")] HRESULT SavePhoneticTable([in] BSTR bstrPhTableFilePath);
+	[id(3), helpstring("method LoadPhoneticTable")] HRESULT LoadPhoneticTable([in] BSTR bstrPhTableFilePath);
+};
+
+[
+	uuid(1ABDE916-4C9A-4866-815F-B4A26CB7347F),
+	version(1.0),
+	helpstring("PhTranslateCOM 1.0 Type Library")
+]
+library PhTranslateCOMLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(A4E71D2A-480A-4CF0-A4A8-DCBFB3F99F32),
+		helpstring("TeluguTranslator Class")
+	]
+	coclass TeluguTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+	[
+		uuid(5AA852E3-965D-4DCA-8B15-CB64125BE3D6),
+		helpstring("BengaliTranslator Class")
+	]
+	coclass BengaliTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+	[
+		uuid(DC5E7DD2-4565-4041-BEAC-45E3692F6A61),
+		helpstring("HindiTranslator Class")
+	]
+	coclass HindiTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+	[
+		uuid(8FE6872E-C45B-4C98-B6F7-5B6C6F137E00),
+		helpstring("GujaratiTranslator Class")
+	]
+	coclass GujaratiTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+	[
+		uuid(E692A113-B73A-4896-8BF5-6A0D3C87DBC1),
+		helpstring("KannadaTranslator Class")
+	]
+	coclass KannadaTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+	[
+		uuid(C46F00BB-FADD-404B-8E78-ED29CA9707E3),
+		helpstring("MalayalamTranslator Class")
+	]
+	coclass MalayalamTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+	[
+		uuid(B15CD237-A8A6-4C74-9D98-D16CE7451009),
+		helpstring("PunjabiTranslator Class")
+	]
+	coclass PunjabiTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+	[
+		uuid(F075931B-17FF-491A-A3BB-7FFF6B5A31B5),
+		helpstring("SanskritTranslator Class")
+	]
+	coclass SanskritTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+	[
+		uuid(BA6D442F-3B70-42E4-ADB0-B89CFF57A188),
+		helpstring("TamilTranslator Class")
+	]
+	coclass TamilTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+	[
+		uuid(E05BF268-26FE-49F2-AD1F-9CFB97B7F5FA),
+		helpstring("OriyaTranslator Class")
+	]
+	coclass OriyaTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+	[
+		uuid(5D6B9596-63F2-4989-9B43-A8B79C28C0AF),
+		helpstring("CustomTranslator Class")
+	]
+	coclass CustomTranslator
+	{
+		[default] interface IPhTranslator;
+	};
+};

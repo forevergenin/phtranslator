@@ -1,0 +1,26 @@
+HKCR
+{
+	PhTranslation.TamilTranslator.1 = s 'TamilTranslator Class'
+	{
+		CLSID = s '{BA6D442F-3B70-42E4-ADB0-B89CFF57A188}'
+	}
+	PhTranslation.TamilTranslator = s 'TamilTranslator Class'
+	{
+		CLSID = s '{BA6D442F-3B70-42E4-ADB0-B89CFF57A188}'
+		CurVer = s 'PhTranslation.TamilTranslator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BA6D442F-3B70-42E4-ADB0-B89CFF57A188} = s 'TamilTranslator Class'
+		{
+			ProgID = s 'PhTranslation.TamilTranslator.1'
+			VersionIndependentProgID = s 'PhTranslation.TamilTranslator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ABDE916-4C9A-4866-815F-B4A26CB7347F}'
+		}
+	}
+}

@@ -47,8 +47,8 @@
 				AdditionalOptions="-Zm200 -w34100 -w34189 -Zm200 -w34100 -w34189 -w34100 -w34189"
 				Optimization="2"
 				WholeProgramOptimization="true"
-				AdditionalIncludeDirectories="&quot;..\..\include\QtCore&quot;,&quot;..\..\include\QtGui&quot;,&quot;..\..\include&quot;,&quot;..\..\include\ActiveQt&quot;,&quot;tmp\moc\release_shared&quot;,&quot;.&quot;,..\..\mkspecs\win32-msvc2008"
-				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,NDEBUG"
+				AdditionalIncludeDirectories="..\..\include\QtCore;..\..\include\QtGui;..\..\include;..\..\include\ActiveQt;tmp\moc\release_shared;.;&quot;..\..\mkspecs\win32-msvc2008&quot;;..\PhTranslateLib"
+				PreprocessorDefinitions="QT_NO_DEBUG;NDEBUG;_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_THREAD_SUPPORT;PHTRANSLATELIB_EXPORTS"
 				GeneratePreprocessedFile="0"
 				ExceptionHandling="1"
 				RuntimeLibrary="2"
@@ -76,7 +76,7 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="true"
 				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
-				AdditionalDependencies="e:\Qt\2009.01\qt\lib\qtmain.lib e:\Qt\2009.01\qt\lib\QtGui4.lib e:\Qt\2009.01\qt\lib\QtCore4.lib"
+				AdditionalDependencies="qtmain.lib QtGui4.lib QtCore4.lib"
 				OutputFile="release\textedit.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -138,8 +138,8 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="-Zm200 -w34100 -w34189 -Zm200 -w34100 -w34189 -w34100 -w34189"
 				Optimization="4"
-				AdditionalIncludeDirectories="&quot;..\..\include\QtCore&quot;,&quot;..\..\include\QtGui&quot;,&quot;..\..\include&quot;,&quot;..\..\include\ActiveQt&quot;,&quot;tmp\moc\debug_shared&quot;,&quot;.&quot;,..\..\mkspecs\win32-msvc2008"
-				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+				AdditionalIncludeDirectories="..\..\include\QtCore;..\..\include\QtGui;..\..\include;..\..\include\ActiveQt;tmp\moc\debug_shared;.;&quot;..\..\mkspecs\win32-msvc2008&quot;;..\PhTranslateLib"
+				PreprocessorDefinitions="_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_THREAD_SUPPORT;PHTRANSLATELIB_EXPORTS"
 				GeneratePreprocessedFile="0"
 				ExceptionHandling="1"
 				RuntimeLibrary="3"
@@ -167,9 +167,98 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="true"
 				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
-				AdditionalDependencies="e:\Qt\2009.01\qt\lib\qtmaind.lib e:\Qt\2009.01\qt\lib\QtGuid4.lib e:\Qt\2009.01\qt\lib\QtCored4.lib e:\Qt\2009.01\qt\lib\QtXmld4.lib"
+				AdditionalDependencies="qtmaind.lib QtGuid4.lib QtCored4.lib QtXmld4.lib"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="e:\Qt\2009.01\qt\lib,e:\Qt\2009.01\qt\lib"
+				AdditionalLibraryDirectories="$(QtDir)\lib"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile=""
+				SubSystem="2"
+				LinkTimeCodeGeneration="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Static Debug|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				WarningLevel="0"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -Zm200 -w34100 -w34189 -w34100 -w34189"
+				Optimization="4"
+				AdditionalIncludeDirectories="..\..\include\QtCore;..\..\include\QtGui;..\..\include;..\..\include\ActiveQt;tmp\moc\debug_shared;.;&quot;..\..\mkspecs\win32-msvc2008&quot;;..\PhTranslateLib"
+				PreprocessorDefinitions="_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_THREAD_SUPPORT;PHTRANSLATELIB_EXPORTS"
+				GeneratePreprocessedFile="0"
+				ExceptionHandling="1"
+				RuntimeLibrary="3"
+				BufferSecurityCheck="false"
+				TreatWChar_tAsBuiltInType="false"
+				RuntimeTypeInfo="true"
+				AssemblerListingLocation="tmp\obj\debug_shared\"
+				ObjectFile="tmp\obj\debug_shared\"
+				ProgramDataBaseFileName=".\"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,_DEBUG"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="true"
+				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
+				AdditionalDependencies="qtmaind.lib QtGuid4.lib QtCored4.lib QtXmld4.lib"
+				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories="$(QtDir)\lib"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=""
 				SubSystem="2"
@@ -211,6 +300,18 @@
 				>
 			</File>
 			<File
+				RelativePath=".\norwegianwoodstyle.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\PhTranslateLib\PhTranslateLib.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\PhTranslateLib\PhTranslator.cpp"
+				>
+			</File>
+			<File
 				RelativePath="textedit.cpp"
 				>
 			</File>
@@ -221,7 +322,37 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\PhoneticTextEdit.h"
+				RelativePath="..\PhTranslateLib\LanguageCodes.h"
+				>
+			</File>
+			<File
+				RelativePath=".\norwegianwoodstyle.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Moc $(InputFileName)"
+						CommandLine="$(QtDir)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\..\include\QtCore&quot; -I&quot;..\..\..\include\QtGui&quot; -I&quot;..\..\..\include&quot; -I&quot;..\..\..\include\ActiveQt&quot; -I&quot;tmp\moc\debug_shared&quot; -I&quot;.&quot; -I..\..\..\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 norwegianwoodstyle.h -o tmp\moc\debug_shared\moc_norwegianwoodstyle.cpp"
+						AdditionalDependencies="$(QtDir)\bin\moc.exe;norwegianwoodstyle.h"
+						Outputs="tmp\moc\debug_shared\moc_norwegianwoodstyle.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Moc $(InputFileName)"
+						CommandLine="$(QtDir)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\..\include\QtCore&quot; -I&quot;..\..\..\include\QtGui&quot; -I&quot;..\..\..\include&quot; -I&quot;..\..\..\include\ActiveQt&quot; -I&quot;tmp\moc\debug_shared&quot; -I&quot;.&quot; -I..\..\..\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 norwegianwoodstyle.h -o tmp\moc\debug_shared\moc_norwegianwoodstyle.cpp"
+						AdditionalDependencies="$(QtDir)\bin\moc.exe;norwegianwoodstyle.h"
+						Outputs="tmp\moc\debug_shared\moc_norwegianwoodstyle.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\PhTextEditor.h"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
@@ -229,11 +360,30 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC PhoneticTextEdit.h"
-						CommandLine="E:\Qt\2009.01\qt\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\include\QtCore&quot; -I&quot;..\..\include\QtGui&quot; -I&quot;..\..\include&quot; -I&quot;..\..\include\ActiveQt&quot; -I&quot;tmp\moc\debug_shared&quot; -I&quot;.&quot; -I..\..\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 PhoneticTextEdit.h -o tmp\moc\debug_shared\moc_PhoneticTextEdit.cpp"
+						CommandLine="$(QtDir)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\include\QtCore&quot; -I&quot;..\..\include\QtGui&quot; -I&quot;..\..\include&quot; -I&quot;..\..\include\ActiveQt&quot; -I&quot;tmp\moc\debug_shared&quot; -I&quot;.&quot; -I..\..\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 $(InputFileName) -o tmp\moc\debug_shared\moc_PhoneticTextEdit.cpp&#x0D;&#x0A;"
 						AdditionalDependencies="E:\Qt\2009.01\qt\bin\moc.exe;PhoneticTextEdit.h"
 						Outputs="tmp\moc\debug_shared\moc_PhoneticTextEdit.cpp"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC PhoneticTextEdit.h"
+						CommandLine="$(QtDir)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\include\QtCore&quot; -I&quot;..\..\include\QtGui&quot; -I&quot;..\..\include&quot; -I&quot;..\..\include\ActiveQt&quot; -I&quot;tmp\moc\debug_shared&quot; -I&quot;.&quot; -I..\..\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 $(InputFileName) -o tmp\moc\debug_shared\moc_PhoneticTextEdit.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="E:\Qt\2009.01\qt\bin\moc.exe;PhoneticTextEdit.h"
+						Outputs="tmp\moc\debug_shared\moc_PhoneticTextEdit.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\PhTranslateLib\PhTranslateLib.h"
+				>
+			</File>
+			<File
+				RelativePath="..\PhTranslateLib\PhTranslator.h"
+				>
 			</File>
 			<File
 				RelativePath="textedit.h"
@@ -255,8 +405,19 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="MOC textedit.h"
-						CommandLine="E:\Qt\2009.01\qt\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\include\QtCore&quot; -I&quot;..\..\include\QtGui&quot; -I&quot;..\..\include&quot; -I&quot;..\..\include\ActiveQt&quot; -I&quot;tmp\moc\debug_shared&quot; -I&quot;.&quot; -I..\..\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 textedit.h -o tmp\moc\debug_shared\moc_textedit.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="E:\Qt\2009.01\qt\bin\moc.exe;textedit.h"
+						CommandLine="$(QtDir)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\include\QtCore&quot; -I&quot;..\..\include\QtGui&quot; -I&quot;..\..\include&quot; -I&quot;..\..\include\ActiveQt&quot; -I&quot;tmp\moc\debug_shared&quot; -I&quot;.&quot; -I..\..\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 textedit.h -o tmp\moc\debug_shared\moc_textedit.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QtDir)\bin\moc.exe;textedit.h"
+						Outputs="tmp\moc\debug_shared\moc_textedit.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC textedit.h"
+						CommandLine="$(QtDir)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\include\QtCore&quot; -I&quot;..\..\include\QtGui&quot; -I&quot;..\..\include&quot; -I&quot;..\..\include\ActiveQt&quot; -I&quot;tmp\moc\debug_shared&quot; -I&quot;.&quot; -I..\..\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 textedit.h -o tmp\moc\debug_shared\moc_textedit.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QtDir)\bin\moc.exe;textedit.h"
 						Outputs="tmp\moc\debug_shared\moc_textedit.cpp"
 					/>
 				</FileConfiguration>
@@ -268,20 +429,12 @@
 			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}"
 			>
 			<File
-				RelativePath=".\tmp\moc\debug_shared\moc_PhoneticTextEdit.cpp"
+				RelativePath=".\tmp\moc\debug_shared\moc_norwegianwoodstyle.cpp"
 				>
 			</File>
 			<File
-				RelativePath="tmp\moc\release_shared\moc_textedit.cpp"
+				RelativePath=".\tmp\moc\debug_shared\moc_PhoneticTextEdit.cpp"
 				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="tmp\moc\debug_shared\moc_textedit.cpp"
@@ -296,10 +449,18 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="tmp\rcc\release_shared\qrc_textedit.cpp"
+				RelativePath="tmp\moc\release_shared\moc_textedit.cpp"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -318,6 +479,40 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="tmp\rcc\release_shared\qrc_textedit.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 		</Filter>
 		<Filter
@@ -327,19 +522,19 @@
 			ParseFiles="false"
 			>
 			<File
-				RelativePath="images\win\editcopy.png"
-				>
-			</File>
-			<File
 				RelativePath="images\mac\editcopy.png"
 				>
 			</File>
 			<File
-				RelativePath="images\win\editcut.png"
+				RelativePath="images\win\editcopy.png"
 				>
 			</File>
 			<File
 				RelativePath="images\mac\editcut.png"
+				>
+			</File>
+			<File
+				RelativePath="images\win\editcut.png"
 				>
 			</File>
 			<File
@@ -351,15 +546,11 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\editredo.png"
-				>
-			</File>
-			<File
 				RelativePath="images\mac\editredo.png"
 				>
 			</File>
 			<File
-				RelativePath="images\mac\editundo.png"
+				RelativePath="images\win\editredo.png"
 				>
 			</File>
 			<File
@@ -367,11 +558,11 @@
 				>
 			</File>
 			<File
-				RelativePath="example.html"
+				RelativePath="images\mac\editundo.png"
 				>
 			</File>
 			<File
-				RelativePath="images\win\exportpdf.png"
+				RelativePath="example.html"
 				>
 			</File>
 			<File
@@ -379,11 +570,15 @@
 				>
 			</File>
 			<File
-				RelativePath="images\mac\filenew.png"
+				RelativePath="images\win\exportpdf.png"
 				>
 			</File>
 			<File
 				RelativePath="images\win\filenew.png"
+				>
+			</File>
+			<File
+				RelativePath="images\mac\filenew.png"
 				>
 			</File>
 			<File
@@ -395,15 +590,11 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\fileprint.png"
-				>
-			</File>
-			<File
 				RelativePath="images\mac\fileprint.png"
 				>
 			</File>
 			<File
-				RelativePath="images\mac\filesave.png"
+				RelativePath="images\win\fileprint.png"
 				>
 			</File>
 			<File
@@ -411,11 +602,11 @@
 				>
 			</File>
 			<File
-				RelativePath="images\logo32.png"
+				RelativePath="images\mac\filesave.png"
 				>
 			</File>
 			<File
-				RelativePath="images\win\textbold.png"
+				RelativePath="images\logo32.png"
 				>
 			</File>
 			<File
@@ -423,11 +614,15 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\textcenter.png"
+				RelativePath="images\win\textbold.png"
 				>
 			</File>
 			<File
 				RelativePath="images\mac\textcenter.png"
+				>
+			</File>
+			<File
+				RelativePath="images\win\textcenter.png"
 				>
 			</File>
 			<File
@@ -450,26 +645,37 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="RCC textedit.qrc"
-						CommandLine="E:\Qt\2009.01\qt\bin\rcc.exe -name textedit textedit.qrc -o tmp\rcc\debug_shared\qrc_textedit.cpp&#x0D;&#x0A;"
-						AdditionalDependencies="E:\Qt\2009.01\qt\bin\rcc.exe;example.html;images\logo32.png;images\mac\editcopy.png;images\mac\editcut.png;images\mac\editpaste.png;images\mac\editredo.png;images\mac\editundo.png;images\mac\exportpdf.png;images\mac\filenew.png;images\mac\fileopen.png;images\mac\fileprint.png;images\mac\filesave.png;images\mac\textbold.png;images\mac\textcenter.png;images\mac\textitalic.png;images\mac\textjustify.png;images\mac\textleft.png;images\mac\textright.png;images\mac\textunder.png;images\mac\zoomin.png;images\mac\zoomout.png;images\win\editcopy.png;images\win\editcut.png;images\win\editpaste.png;images\win\editredo.png;images\win\editundo.png;images\win\exportpdf.png;images\win\filenew.png;images\win\fileopen.png;images\win\fileprint.png;images\win\filesave.png;images\win\textbold.png;images\win\textcenter.png;images\win\textitalic.png;images\win\textjustify.png;images\win\textleft.png;images\win\textright.png;images\win\textunder.png;images\win\zoomin.png;images\win\zoomout.png;textedit.qrc"
+						CommandLine="$(QtDir)\bin\rcc.exe -name textedit textedit.qrc -o tmp\rcc\debug_shared\qrc_textedit.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QtDir)\bin\rcc.exe;example.html;images\logo32.png;images\mac\editcopy.png;images\mac\editcut.png;images\mac\editpaste.png;images\mac\editredo.png;images\mac\editundo.png;images\mac\exportpdf.png;images\mac\filenew.png;images\mac\fileopen.png;images\mac\fileprint.png;images\mac\filesave.png;images\mac\textbold.png;images\mac\textcenter.png;images\mac\textitalic.png;images\mac\textjustify.png;images\mac\textleft.png;images\mac\textright.png;images\mac\textunder.png;images\mac\zoomin.png;images\mac\zoomout.png;images\win\editcopy.png;images\win\editcut.png;images\win\editpaste.png;images\win\editredo.png;images\win\editundo.png;images\win\exportpdf.png;images\win\filenew.png;images\win\fileopen.png;images\win\fileprint.png;images\win\filesave.png;images\win\textbold.png;images\win\textcenter.png;images\win\textitalic.png;images\win\textjustify.png;images\win\textleft.png;images\win\textright.png;images\win\textunder.png;images\win\zoomin.png;images\win\zoomout.png;textedit.qrc"
 						Outputs="tmp\rcc\debug_shared\qrc_textedit.cpp"
 					/>
 				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="images\win\textitalic.png"
-				>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="RCC textedit.qrc"
+						CommandLine="$(QtDir)\bin\rcc.exe -name textedit textedit.qrc -o tmp\rcc\debug_shared\qrc_textedit.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QtDir)\bin\rcc.exe;example.html;images\logo32.png;images\mac\editcopy.png;images\mac\editcut.png;images\mac\editpaste.png;images\mac\editredo.png;images\mac\editundo.png;images\mac\exportpdf.png;images\mac\filenew.png;images\mac\fileopen.png;images\mac\fileprint.png;images\mac\filesave.png;images\mac\textbold.png;images\mac\textcenter.png;images\mac\textitalic.png;images\mac\textjustify.png;images\mac\textleft.png;images\mac\textright.png;images\mac\textunder.png;images\mac\zoomin.png;images\mac\zoomout.png;images\win\editcopy.png;images\win\editcut.png;images\win\editpaste.png;images\win\editredo.png;images\win\editundo.png;images\win\exportpdf.png;images\win\filenew.png;images\win\fileopen.png;images\win\fileprint.png;images\win\filesave.png;images\win\textbold.png;images\win\textcenter.png;images\win\textitalic.png;images\win\textjustify.png;images\win\textleft.png;images\win\textright.png;images\win\textunder.png;images\win\zoomin.png;images\win\zoomout.png;textedit.qrc"
+						Outputs="tmp\rcc\debug_shared\qrc_textedit.cpp"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="images\mac\textitalic.png"
 				>
 			</File>
 			<File
-				RelativePath="images\win\textjustify.png"
+				RelativePath="images\win\textitalic.png"
 				>
 			</File>
 			<File
 				RelativePath="images\mac\textjustify.png"
+				>
+			</File>
+			<File
+				RelativePath="images\win\textjustify.png"
 				>
 			</File>
 			<File
@@ -481,11 +687,15 @@
 				>
 			</File>
 			<File
+				RelativePath="images\mac\textright.png"
+				>
+			</File>
+			<File
 				RelativePath="images\win\textright.png"
 				>
 			</File>
 			<File
-				RelativePath="images\mac\textright.png"
+				RelativePath="images\mac\textunder.png"
 				>
 			</File>
 			<File
@@ -493,7 +703,11 @@
 				>
 			</File>
 			<File
-				RelativePath="images\mac\textunder.png"
+				RelativePath=".\images\woodbackground.png"
+				>
+			</File>
+			<File
+				RelativePath=".\images\woodbutton.png"
 				>
 			</File>
 			<File
@@ -505,11 +719,11 @@
 				>
 			</File>
 			<File
-				RelativePath="images\win\zoomout.png"
+				RelativePath="images\mac\zoomout.png"
 				>
 			</File>
 			<File
-				RelativePath="images\mac\zoomout.png"
+				RelativePath="images\win\zoomout.png"
 				>
 			</File>
 		</Filter>

@@ -1,0 +1,26 @@
+HKCR
+{
+	PhTranslation.GujaratiTranslator.1 = s 'GujaratiTranslator Class'
+	{
+		CLSID = s '{8FE6872E-C45B-4C98-B6F7-5B6C6F137E00}'
+	}
+	PhTranslation.GujaratiTranslator = s 'GujaratiTranslator Class'
+	{
+		CLSID = s '{8FE6872E-C45B-4C98-B6F7-5B6C6F137E00}'
+		CurVer = s 'PhTranslation.GujaratiTranslator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8FE6872E-C45B-4C98-B6F7-5B6C6F137E00} = s 'GujaratiTranslator Class'
+		{
+			ProgID = s 'PhTranslation.GujaratiTranslator.1'
+			VersionIndependentProgID = s 'PhTranslation.GujaratiTranslator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ABDE916-4C9A-4866-815F-B4A26CB7347F}'
+		}
+	}
+}

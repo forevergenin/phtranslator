@@ -1,0 +1,26 @@
+HKCR
+{
+	PhTranslation.KannadaTranslator.1 = s 'KannadaTranslator Class'
+	{
+		CLSID = s '{E692A113-B73A-4896-8BF5-6A0D3C87DBC1}'
+	}
+	PhTranslation.KannadaTranslator = s 'KannadaTranslator Class'
+	{
+		CLSID = s '{E692A113-B73A-4896-8BF5-6A0D3C87DBC1}'
+		CurVer = s 'PhTranslation.KannadaTranslator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E692A113-B73A-4896-8BF5-6A0D3C87DBC1} = s 'KannadaTranslator Class'
+		{
+			ProgID = s 'PhTranslation.KannadaTranslator.1'
+			VersionIndependentProgID = s 'PhTranslation.KannadaTranslator'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ABDE916-4C9A-4866-815F-B4A26CB7347F}'
+		}
+	}
+}

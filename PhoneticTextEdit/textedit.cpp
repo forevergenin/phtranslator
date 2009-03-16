@@ -65,6 +65,10 @@
 #include <QtGui/QCloseEvent>
 #include <QtGui/QMessageBox>
 #include <QtGui/QPrintPreviewDialog>
+#include <QtGui/QStyleFactory>
+
+#include "PhTranslateLib.h"
+#include "norwegianwoodstyle.h"
 
 #ifdef Q_WS_MAC
 const QString rsrcPath = ":/images/mac";
@@ -81,6 +85,7 @@ TextEdit::TextEdit(QWidget *parent)
     setupEditActions();
     setupTextActions();
     setupTranslationActions();
+	setupViewActions();
 
     {
         QMenu *helpMenu = new QMenu(tr("Help"), this);
@@ -371,6 +376,7 @@ void TextEdit::setupTranslationActions()
     QToolBar* tb = new QToolBar(this);
     tb->setAllowedAreas(Qt::TopToolBarArea | Qt::BottomToolBarArea);
     tb->setWindowTitle(tr("Translate Actions"));
+	//addToolBarBreak(Qt::TopToolBarArea);	
     addToolBar(tb);
 
     labelTranslation = new QLabel(tr("&Transliterate to: "), tb);
@@ -380,6 +386,7 @@ void TextEdit::setupTranslationActions()
     tb->addWidget(comboTranslation);
     comboTranslation->addItem(tr("English"));
     comboTranslation->addItem(tr("Bengali"));
+    comboTranslation->addItem(tr("Gujarati"));
     comboTranslation->addItem(tr("Hindi"));
     comboTranslation->addItem(tr("Kannada"));
     comboTranslation->addItem(tr("Malayalam"));
@@ -391,7 +398,7 @@ void TextEdit::setupTranslationActions()
     comboTranslation->addItem(tr("Custom"));
     connect(comboTranslation, SIGNAL(activated(int)), this, SLOT(TranslationOptionChanged(int)));
 
-    comboTranslation->setCurrentIndex(7);
+    comboTranslation->setCurrentIndex(8);
     labelTranslation->setBuddy(comboTranslation);
 
     QMenu *menu = new QMenu(tr("&Translate"), this);
@@ -408,8 +415,32 @@ void TextEdit::setupTranslationActions()
     menu->addAction(actionTranslate);
     menu->addSeparator();
     menu->addAction(actionTranslateOnTheFly);
+
+	TranslationOptionChanged(8);	// We need to make this explicit call because the Siganls will not be active at this point yet.
 }
 
+
+void TextEdit::	setupViewActions()
+{
+	QToolBar* tb = new QToolBar(this);
+	tb->setAllowedAreas(Qt::TopToolBarArea | Qt::BottomToolBarArea);
+	tb->setWindowTitle(tr("Theme Actions"));
+	addToolBar(Qt::BottomToolBarArea,tb);
+
+	labelThemes = new QLabel(tr("The&me: "), tb);
+	tb->addWidget(labelThemes);
+
+	comboThemes = new QComboBox(tb);
+	tb->addWidget(comboThemes);
+	comboThemes->addItem("NorwegianWood");
+	comboThemes->addItems(QStyleFactory::keys());
+	connect(comboThemes, SIGNAL(activated(const QString&)), this, SLOT(changeStyle(const QString&)));
+
+	comboThemes->setCurrentIndex(comboThemes->findText("Cleanlooks"));
+	labelThemes->setBuddy(comboThemes);
+
+	changeStyle("Cleanlooks");
+}
 
 bool TextEdit::load(const QString &f)
 {
@@ -751,6 +782,31 @@ void TextEdit::alignmentChanged(Qt::Alignment a)
 
 void TextEdit::TranslationOptionChanged(int Option)
 {
-    int i = comboTranslation->currentIndex();
+	switch(Option)
+	{
+	case 0: textEdit->SetTranslator(NULL); break;
+	case 1: textEdit->SetTranslator(GetBengaliTranslator()); break;
+	case 2: textEdit->SetTranslator(GetGujaratiTranslator()); break;
+	case 3: textEdit->SetTranslator(GetHindiTranslator()); break;
+	case 4: textEdit->SetTranslator(GetKannadaTranslator()); break;
+	case 5: textEdit->SetTranslator(GetMalayalamTranslator()); break;
+	case 6: textEdit->SetTranslator(GetOriyaTranslator()); break;
+	case 7: textEdit->SetTranslator(GetPunjabiTranslator()); break;
+	case 8: textEdit->SetTranslator(GetSanskritTranslator()); break;
+	case 9: textEdit->SetTranslator(GetTamilTranslator()); break;
+	case 10: textEdit->SetTranslator(GetTeluguTranslator()); break;
+	case 11: break;
+	default: break;
+	}
     OutputDebugString(L"TranslationOptionChanged");
+}
+
+void TextEdit::changeStyle(const QString& strStyle)
+{
+	if(strStyle == "NorwegianWood")
+		QApplication::setStyle(new NorwegianWoodStyle());
+	else
+		QApplication::setStyle(QStyleFactory::create(strStyle));
+
+	QApplication::setPalette(QApplication::style()->standardPalette());
 }

@@ -40,5 +40,7 @@
   <file>images/win/zoomin.png</file>
   <file>images/win/zoomout.png</file>
   <file>example.html</file>
+    <file>images/woodbutton.png</file>
+    <file>images/woodbackground.png</file>
 </qresource>
 </RCC>
