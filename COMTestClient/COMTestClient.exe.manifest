@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns="urn:schemas-microsoft-com:asm.v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <assemblyIdentity name="COMTestClient.exe" version="1.0.0.0" type="win32" />
+  <file name="PhTranslateCOM.dll" asmv2:size="201728">
+    <hash xmlns="urn:schemas-microsoft-com:asm.v2">
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>CZZ+w0pLx36LPKY2orTea7eLqWw=</dsig:DigestValue>
+    </hash>
+    <typelib tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" version="1.0" helpdir="" resourceid="0" flags="HASDISKIMAGE" />
+    <comClass clsid="{a4e71d2a-480a-4cf0-a4a8-dcbfb3f99f32}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.TeluguTranslator.1" description="TeluguTranslator Class" />
+    <comClass clsid="{5aa852e3-965d-4dca-8b15-cb64125be3d6}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.BengaliTranslator.1" description="BengaliTranslator Class" />
+    <comClass clsid="{dc5e7dd2-4565-4041-beac-45e3692f6a61}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.HindiTranslator.1" description="HindiTranslator Class" />
+    <comClass clsid="{8fe6872e-c45b-4c98-b6f7-5b6c6f137e00}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.GujaratiTranslator.1" description="GujaratiTranslator Class" />
+    <comClass clsid="{e692a113-b73a-4896-8bf5-6a0d3c87dbc1}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.KannadaTranslator.1" description="KannadaTranslator Class" />
+    <comClass clsid="{c46f00bb-fadd-404b-8e78-ed29ca9707e3}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.MalayalamTranslator.1" description="MalayalamTranslator Class" />
+    <comClass clsid="{b15cd237-a8a6-4c74-9d98-d16ce7451009}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.PunjabiTranslator.1" description="PunjabiTranslator Class" />
+    <comClass clsid="{f075931b-17ff-491a-a3bb-7fff6b5a31b5}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.SanskritTranslator.1" description="SanskritTranslator Class" />
+    <comClass clsid="{ba6d442f-3b70-42e4-adb0-b89cff57a188}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.TamilTranslator.1" description="TamilTranslator Class" />
+    <comClass clsid="{e05bf268-26fe-49f2-ad1f-9cfb97b7f5fa}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.OriyaTranslator.1" description="OriyaTranslator Class" />
+    <comClass clsid="{5d6b9596-63f2-4989-9b43-a8b79c28c0af}" threadingModel="Apartment" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}" progid="PhTranslation.CustomTranslator.1" description="CustomTranslator Class" />
+  </file>
+            <comInterfaceExternalProxyStub name="IPhTranslator" iid="{581A99EE-6C43-42F2-9A48-0CE5EE15C469}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}" baseInterface="{00000000-0000-0000-C000-000000000046}" tlbid="{1abde916-4c9a-4866-815f-b4a26cb7347f}"/>
+</assembly>

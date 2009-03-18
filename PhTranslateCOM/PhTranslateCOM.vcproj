@@ -312,7 +312,6 @@
 				MkTypLibCompatible="false"
 				TargetEnvironment="1"
 				GenerateStublessProxies="true"
-				TypeLibraryName="$(IntDir)/PhTranslateCOM.tlb"
 				HeaderFileName="PhTranslateCOM_i.h"
 				DLLDataFileName=""
 				InterfaceIdentifierFileName="PhTranslateCOM_i.c"
@@ -358,6 +357,9 @@
 			/>
 			<Tool
 				Name="VCManifestTool"
+				AssemblyIdentity="$(ProjectName), type=win32, version=1.0.0.0"
+				TypeLibraryFile="$(IntDir)/$(ProjectName).tlb"
+				ComponentFileName="$(ProjectName).dll"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
