@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 namespace DotNetTestApp
 {
@@ -72,16 +73,69 @@ namespace DotNetTestApp
 
         System.IntPtr m_CurrentTranslator = IntPtr.Zero;
         System.IntPtr m_CustomTranslator = IntPtr.Zero;
+		string m_strCurrentTranslator;
+		string m_strCustomTranslatorPath;
+
+		const string m_ReguserRoot = "HKEY_CURRENT_USER";
+		const string m_Regsubkey = "Software\\PhTranslator";
+		const string m_RegkeyName = m_ReguserRoot + "\\" + m_Regsubkey;
 
         private void Form1_Load(object sender, EventArgs e)
         {
+			string strTranslator = (string)Registry.GetValue(m_RegkeyName, "Translator", "Sanskrit");
+			switch (strTranslator)
+			{
+				case "Bengali": radioButton_Gujarati.Checked = true; break;
+				case "Gujarati": radioButton_Gujarati.Checked = true; break;
+				case "Hindi": radioButton_Hindi.Checked = true; break;
+				case "Kannada": radioButton_Kannada.Checked = true; break;
+				case "Sanskrit": radioButton_Sanskrit.Checked = true; break;
+				case "Malayalam": radioButton_Malayalam.Checked = true; break;
+				case "Punjabi": radioButton_Punjabi.Checked = true; break;
+				case "Oriya": radioButton_Oriya.Checked = true; break;
+				case "Tamil": radioButton_Tamil.Checked = true; break;
+				case "Telugu": radioButton_Telugu.Checked = true; break;
+				case "Custom":
+					{
+						string strPath = (string) Registry.GetValue(m_RegkeyName, "CustomTranslator", "");
+						System.IntPtr customTranslator = CreateCustomTranslator(strPath);
+						if (customTranslator != System.IntPtr.Zero)
+						{
+							this.m_CustomTranslator = customTranslator;
+							radioButton_CustomLanguage.Checked = true;
+							m_strCustomTranslatorPath = strPath;
+						}
+						else 
+							radioButton_Sanskrit.Checked = true;
+						break;
+					}
+				default: radioButton_Sanskrit.Checked = true; break;
+			}
+
+			try
+			{
+				/////////////////////////////////////
+				string strFontName = (string)Registry.GetValue(m_RegkeyName, "FontName", "Gautami");
+				object fSize = Registry.GetValue(m_RegkeyName, "FontSize", (int)12);
+				object fStyle = Registry.GetValue(m_RegkeyName, "FontStyle", (int)FontStyle.Regular);
+				object gUnit = Registry.GetValue(m_RegkeyName, "FontUnit", (int)GraphicsUnit.Point);
+
+				Font textFont = new Font(strFontName != null ? strFontName : "Gautami",
+											fSize!=null ? (float)(int)fSize : 12,
+										fStyle!=null ? (FontStyle)(int)fStyle : FontStyle.Regular,
+										gUnit != null ? (GraphicsUnit)(int)gUnit : GraphicsUnit.Point);
+				textBox_Output.Font = textFont;
+				/////////////////////////////////////
+			}
+			catch
+			{
+			}
+
             propertyGrid1.Visible = false;
 
-            radioButton_Sanskrit.Checked = true;
-
             textBox_Input.Text = "swaagatam";
-            textBox_Input.SelectAll();
             button_Translate_Click(this, new EventArgs());
+			textBox_Input.Focus();
         }
 
 
@@ -125,6 +179,7 @@ namespace DotNetTestApp
             {
                 m_CurrentTranslator = GetTeluguTranslator();
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Telugu";
             }
         }
 
@@ -152,14 +207,22 @@ namespace DotNetTestApp
                 {
                     ReleaseCustomTranslator(this.m_CustomTranslator);
                     this.m_CustomTranslator = customTranslator;
-                    if (radioButton_CustomLanguage.Checked == true)
-                        m_CurrentTranslator = m_CustomTranslator;
+					radioButton_CustomLanguage.Checked = true;
+					m_strCustomTranslatorPath = openFileDialog1.FileName;
                 }
             }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+			Registry.SetValue(m_RegkeyName, "Translator", m_strCurrentTranslator != null ? m_strCurrentTranslator : "Sanskrit");
+			Registry.SetValue(m_RegkeyName, "CustomTranslator", m_strCustomTranslatorPath!=null?m_strCustomTranslatorPath:"");			
+			 
+			Registry.SetValue(m_RegkeyName, "FontName", textBox_Output.Font.Name);
+			Registry.SetValue(m_RegkeyName, "FontSize", (int)textBox_Output.Font.Size, RegistryValueKind.DWord);
+			Registry.SetValue(m_RegkeyName, "FontStyle", textBox_Output.Font.Style, RegistryValueKind.DWord);
+			Registry.SetValue(m_RegkeyName, "FontUnit", textBox_Output.Font.Unit, RegistryValueKind.DWord);
+
             ReleaseCustomTranslator(this.m_CustomTranslator);
         }
 
@@ -180,6 +243,7 @@ namespace DotNetTestApp
                     m_CurrentTranslator = m_CustomTranslator;
 
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Custom";
             }
         }
 
@@ -189,6 +253,7 @@ namespace DotNetTestApp
             {
                 m_CurrentTranslator = GetBengaliTranslator();
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Bengali";
             }
         }
 
@@ -198,6 +263,7 @@ namespace DotNetTestApp
             {
                 m_CurrentTranslator = GetSanskritTranslator();
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Sanskrit";
             }
         }
 
@@ -207,6 +273,7 @@ namespace DotNetTestApp
             {
                 m_CurrentTranslator = GetKannadaTranslator();
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Kannada";
             }
         }
 
@@ -216,6 +283,7 @@ namespace DotNetTestApp
             {
                 m_CurrentTranslator = GetHindiTranslator();
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Hindi";
             }
         }
 
@@ -225,6 +293,7 @@ namespace DotNetTestApp
             {
                 m_CurrentTranslator = GetMalayalamTranslator();
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Malayalam";
             }
         }
 
@@ -234,6 +303,7 @@ namespace DotNetTestApp
             {
                 m_CurrentTranslator = GetOriyaTranslator();
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Oriya";
             }
         }
 
@@ -243,6 +313,7 @@ namespace DotNetTestApp
             {
                 m_CurrentTranslator = GetGujaratiTranslator();
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Gujarati";
             }
         }
 
@@ -252,6 +323,7 @@ namespace DotNetTestApp
             {
                 m_CurrentTranslator = GetTamilTranslator();
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Tamil";
             }
         }
 
@@ -261,6 +333,7 @@ namespace DotNetTestApp
             {
                 m_CurrentTranslator = GetPunjabiTranslator();
                 button_Translate_Click(this, new EventArgs());
+				m_strCurrentTranslator = "Punjabi";
             }
         }
 
