@@ -53,6 +53,7 @@
 			this.textBox_Input = new System.Windows.Forms.TextBox();
 			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.linkLabel_AlphabetChart = new System.Windows.Forms.LinkLabel();
 			this.panel_Buttons.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -94,15 +95,15 @@
 			// panel_Buttons
 			// 
 			this.panel_Buttons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.panel_Buttons.Controls.Add(this.linkLabel_AlphabetChart);
 			this.panel_Buttons.Controls.Add(this.groupBox1);
 			this.panel_Buttons.Controls.Add(this.button_SaveTables);
-			this.panel_Buttons.Controls.Add(this.button_Translate);
 			this.panel_Buttons.Controls.Add(this.button_LoadTable);
 			this.panel_Buttons.Controls.Add(this.button_Options);
 			this.panel_Buttons.Dock = System.Windows.Forms.DockStyle.Right;
 			this.panel_Buttons.Location = new System.Drawing.Point(665, 0);
 			this.panel_Buttons.Name = "panel_Buttons";
-			this.panel_Buttons.Size = new System.Drawing.Size(186, 480);
+			this.panel_Buttons.Size = new System.Drawing.Size(186, 499);
 			this.panel_Buttons.TabIndex = 6;
 			// 
 			// groupBox1
@@ -248,7 +249,7 @@
 			// 
 			// button_Translate
 			// 
-			this.button_Translate.Location = new System.Drawing.Point(5, 476);
+			this.button_Translate.Location = new System.Drawing.Point(479, 461);
 			this.button_Translate.Name = "button_Translate";
 			this.button_Translate.Size = new System.Drawing.Size(180, 38);
 			this.button_Translate.TabIndex = 1;
@@ -265,7 +266,7 @@
 			this.propertyGrid1.Margin = new System.Windows.Forms.Padding(4);
 			this.propertyGrid1.Name = "propertyGrid1";
 			this.propertyGrid1.SelectedObject = this.textBox_Output;
-			this.propertyGrid1.Size = new System.Drawing.Size(354, 480);
+			this.propertyGrid1.Size = new System.Drawing.Size(354, 499);
 			this.propertyGrid1.TabIndex = 19;
 			this.propertyGrid1.TabStop = false;
 			// 
@@ -278,18 +279,19 @@
 			this.textBox_Output.Multiline = true;
 			this.textBox_Output.Name = "textBox_Output";
 			this.textBox_Output.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBox_Output.Size = new System.Drawing.Size(311, 375);
+			this.textBox_Output.Size = new System.Drawing.Size(311, 389);
 			this.textBox_Output.TabIndex = 17;
 			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.splitContainer1);
 			this.panel1.Controls.Add(this.propertyGrid1);
+			this.panel1.Controls.Add(this.button_Translate);
 			this.panel1.Controls.Add(this.panel_Buttons);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(4, 8);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(851, 480);
+			this.panel1.Size = new System.Drawing.Size(851, 499);
 			this.panel1.TabIndex = 8;
 			// 
 			// splitContainer1
@@ -306,8 +308,8 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.textBox_Input);
-			this.splitContainer1.Size = new System.Drawing.Size(311, 480);
-			this.splitContainer1.SplitterDistance = 375;
+			this.splitContainer1.Size = new System.Drawing.Size(311, 499);
+			this.splitContainer1.SplitterDistance = 389;
 			this.splitContainer1.TabIndex = 0;
 			this.splitContainer1.TabStop = false;
 			// 
@@ -319,7 +321,7 @@
 			this.textBox_Input.Multiline = true;
 			this.textBox_Input.Name = "textBox_Input";
 			this.textBox_Input.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBox_Input.Size = new System.Drawing.Size(311, 101);
+			this.textBox_Input.Size = new System.Drawing.Size(311, 106);
 			this.textBox_Input.TabIndex = 1;
 			this.textBox_Input.TextChanged += new System.EventHandler(this.textBox_Input_TextChanged);
 			// 
@@ -337,11 +339,22 @@
 			this.openFileDialog1.Filter = "PhoneticTable Files|*.PhTable|All Files|*.*";
 			this.openFileDialog1.Title = "Select the PhoneticTable";
 			// 
+			// linkLabel_AlphabetChart
+			// 
+			this.linkLabel_AlphabetChart.AutoSize = true;
+			this.linkLabel_AlphabetChart.Location = new System.Drawing.Point(18, 482);
+			this.linkLabel_AlphabetChart.Name = "linkLabel_AlphabetChart";
+			this.linkLabel_AlphabetChart.Size = new System.Drawing.Size(139, 17);
+			this.linkLabel_AlphabetChart.TabIndex = 20;
+			this.linkLabel_AlphabetChart.TabStop = true;
+			this.linkLabel_AlphabetChart.Text = "&Help: Alphabet Chart";
+			this.linkLabel_AlphabetChart.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_AlphabetChart_LinkClicked);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(859, 496);
+			this.ClientSize = new System.Drawing.Size(859, 515);
 			this.Controls.Add(this.panel1);
 			this.Name = "Form1";
 			this.Padding = new System.Windows.Forms.Padding(4, 8, 4, 8);
@@ -351,6 +364,7 @@
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 			this.Resize += new System.EventHandler(this.Form1_Resize);
 			this.panel_Buttons.ResumeLayout(false);
+			this.panel_Buttons.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.panel1.ResumeLayout(false);
@@ -390,6 +404,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox textBox_Output;
         private System.Windows.Forms.TextBox textBox_Input;
+		private System.Windows.Forms.LinkLabel linkLabel_AlphabetChart;
     }
 }
 

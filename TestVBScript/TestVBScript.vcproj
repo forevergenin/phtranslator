@@ -56,6 +56,47 @@
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
+		<Configuration
+			Name="Static Release|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Static Debug|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -63,6 +104,50 @@
 		<File
 			RelativePath=".\Test.vbs"
 			>
+			<FileConfiguration
+				Name="Debug|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="copying $(InputPath) to $(SolutionDir)$(ConfigurationName)\"
+					CommandLine="copy &quot;$(InputPath)&quot; &quot;$(SolutionDir)$(ConfigurationName)\&quot;&#x0D;&#x0A;"
+					AdditionalDependencies="$(InputPath)"
+					Outputs="$(SolutionDir)$(ConfigurationName)\$(InputFileName)"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="copying $(InputPath) to $(SolutionDir)$(ConfigurationName)\"
+					CommandLine="copy &quot;$(InputPath)&quot; &quot;$(SolutionDir)$(ConfigurationName)\&quot;&#x0D;&#x0A;"
+					AdditionalDependencies="$(InputPath)"
+					Outputs="$(SolutionDir)$(ConfigurationName)\$(InputFileName)"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Static Release|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="copying $(InputPath) to $(SolutionDir)$(ConfigurationName)\"
+					CommandLine="copy &quot;$(InputPath)&quot; &quot;$(SolutionDir)$(ConfigurationName)\&quot;&#x0D;&#x0A;"
+					AdditionalDependencies="$(InputPath)"
+					Outputs="$(SolutionDir)$(ConfigurationName)\$(InputFileName)"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Static Debug|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="copying $(InputPath) to $(SolutionDir)$(ConfigurationName)\"
+					CommandLine="copy &quot;$(InputPath)&quot; &quot;$(SolutionDir)$(ConfigurationName)\&quot;&#x0D;&#x0A;"
+					AdditionalDependencies="$(InputPath)"
+					Outputs="$(SolutionDir)$(ConfigurationName)\$(InputFileName)"
+				/>
+			</FileConfiguration>
 		</File>
 	</Files>
 	<Globals>

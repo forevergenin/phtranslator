@@ -101,6 +101,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
+				CommandLine=""
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -235,6 +236,82 @@
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
+		<Configuration
+			Name="Static Release|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="1"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+				CommandLine=""
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="..\PhTranslateLib"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="2"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				LinkIncremental="1"
+				GenerateDebugInformation="true"
+				SubSystem="1"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -275,6 +352,14 @@
 						UsePrecompiledHeader="1"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
 			</File>
 		</Filter>
 		<Filter
@@ -296,26 +381,547 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\BengaliTable.html"
+				DeploymentContent="true"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\GujaratiTable.html"
+				DeploymentContent="true"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\HindiTable.html"
+				DeploymentContent="true"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\KannadaTable.html"
+				DeploymentContent="true"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\MalayalamTable.html"
+				DeploymentContent="true"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\OriyaTable.html"
+				DeploymentContent="true"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\PunjabiTable.html"
+				DeploymentContent="true"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\SanskritTable.html"
+				DeploymentContent="true"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Tables.css"
+				DeploymentContent="true"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\TamilTable.html"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\TeluguTable.html"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Static Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying $(InputPath) to $(TargetDir)Help\"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)Help\&quot;"
+						AdditionalDependencies="$(InputPath)"
+						Outputs="$(TargetDir)Help\$(InputFileName)"
+					/>
+				</FileConfiguration>
+			</File>
 		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"
 			>
-		</File>
-		<File
-			RelativePath=".\Tables.css"
-			DeploymentContent="true"
-			>
-			<FileConfiguration
-				Name="Static Debug|Win32"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-					Description="Copying &quot;$(InputPath)&quot; to &quot;$(TargetDir)&quot;"
-					CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)&quot;"
-					AdditionalDependencies="&quot;$(InputPath)&quot;"
-					Outputs="&quot;$(TargetDir)&quot;$(InputFileName)"
-				/>
-			</FileConfiguration>
 		</File>
 	</Files>
 	<Globals>

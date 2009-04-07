@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace DotNetTestApp
 {
@@ -77,7 +78,7 @@ namespace DotNetTestApp
 		string m_strCustomTranslatorPath;
 
 		const string m_ReguserRoot = "HKEY_CURRENT_USER";
-		const string m_Regsubkey = "Software\\PhTranslator";
+		const string m_Regsubkey = "Software\\PhTranslation\\PhTranslator";
 		const string m_RegkeyName = m_ReguserRoot + "\\" + m_Regsubkey;
 
         private void Form1_Load(object sender, EventArgs e)
@@ -207,7 +208,10 @@ namespace DotNetTestApp
                 {
                     ReleaseCustomTranslator(this.m_CustomTranslator);
                     this.m_CustomTranslator = customTranslator;
-					radioButton_CustomLanguage.Checked = true;
+					if(radioButton_CustomLanguage.Checked == true) // if custom language is already selected as active
+						radioButton_CustomLanguage_CheckedChanged(this, new EventArgs());
+					else
+						radioButton_CustomLanguage.Checked = true; // this will trigger the radioButton_CustomLanguage_CheckedChanged method
 					m_strCustomTranslatorPath = openFileDialog1.FileName;
                 }
             }
@@ -341,5 +345,51 @@ namespace DotNetTestApp
         {
             button_Translate_Click(this, new EventArgs());
         }
+
+		bool LaunchHelpFile(string strFilePath)
+		{
+			Process Helper = new Process();
+			Helper.StartInfo.FileName = strFilePath;
+			//Helper.StartInfo.Arguments = "/r:System.dll /out:sample.exe stdstr.cs";
+			Helper.StartInfo.UseShellExecute = true;
+			Helper.StartInfo.RedirectStandardOutput = false;
+			return Helper.Start();    
+		}
+
+		private void linkLabel_AlphabetChart_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			string strFilePath = "";
+			if (this.radioButton_Bengali.Checked == true)
+				strFilePath = "Help\\BengaliTable.html";
+			if (this.radioButton_Gujarati.Checked == true)
+				strFilePath = "Help\\GujaratiTable.html";
+			if (this.radioButton_Hindi.Checked == true)
+				strFilePath = "Help\\HindiTable.html";
+			if (this.radioButton_Kannada.Checked == true)
+				strFilePath = "Help\\KannadaTable.html";
+			if (this.radioButton_Malayalam.Checked == true)
+				strFilePath = "Help\\MalayalamTable.html";
+			if (this.radioButton_Oriya.Checked == true)
+				strFilePath = "Help\\OriyaTable.html";
+			if (this.radioButton_Punjabi.Checked == true)
+				strFilePath = "Help\\PunjabiTable.html";
+			if (this.radioButton_Sanskrit.Checked == true)
+				strFilePath = "Help\\SanskritTable.html";
+			if (this.radioButton_Tamil.Checked == true)
+				strFilePath = "Help\\TamilTable.html";
+			if (this.radioButton_Telugu.Checked == true)
+				strFilePath = "Help\\TeluguTable.html";
+			if (this.radioButton_CustomLanguage.Checked == true)
+				strFilePath = this.m_strCustomTranslatorPath.Replace(".PhTable", ".html"); 
+
+			try
+			{
+				LaunchHelpFile(strFilePath);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error while Launching " + strFilePath + "\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			}
+		}
     }
 }
