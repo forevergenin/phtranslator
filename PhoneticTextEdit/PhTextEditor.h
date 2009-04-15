@@ -152,7 +152,7 @@ protected:
 
         m_bInsideTranslation = false;
     }
-private slots:
+public slots:
     // Used for handling the CursorPositionChanged event raised by QTextEdit.
     // Raised for all mouse and keyboard events that cause the cursor position change.
     // Subscribed in the Constructor

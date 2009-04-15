@@ -141,8 +141,10 @@ private:
     QLabel* labelThemes;
 
     QToolBar *tb;
-    QString fileName;
+    QString m_fileName;
     CPhoneticTextEdit *textEdit;
+
+    QString m_strCustomPhoneticTablePath;
     
     void* m_pCustomTranslator;
 };
