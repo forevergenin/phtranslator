@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TestDialog</class>
+ <widget class="QDialog" name="TestDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Try your Character Mappings</string>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="QTextEdit" name="textEdit_Output"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>GroupBox</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="lineEdit_Input">
+        <property name="text">
+         <string>Type here </string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pushButton_Translate">
+        <property name="text">
+         <string>&amp;Translate</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>lineEdit_Input</tabstop>
+  <tabstop>pushButton_Translate</tabstop>
+  <tabstop>textEdit_Output</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton_Translate</sender>
+   <signal>clicked()</signal>
+   <receiver>TestDialog</receiver>
+   <slot>TranslateInputText()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>344</x>
+     <y>266</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>398</x>
+     <y>257</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit_Input</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>pushButton_Translate</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>177</x>
+     <y>270</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>328</x>
+     <y>273</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>TranslateInputText()</slot>
+ </slots>
+</ui>
