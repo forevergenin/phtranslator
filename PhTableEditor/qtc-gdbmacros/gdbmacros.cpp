@@ -64,7 +64,10 @@ int qtGhVersion = QT_VERSION;
 
 #include <ctype.h>
 #include <stdio.h>
+
+#ifndef WIN32
 #include <unistd.h>
+#endif
 
 /*!
   \class QDumper
