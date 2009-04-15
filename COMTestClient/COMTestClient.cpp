@@ -21,21 +21,21 @@ int _tmain(int argc, _TCHAR* argv[])
     GetCurrentDirectory(MAX_PATH, szCurDir);
 
     CString strManifest(szCurDir);
-    strManifest += _T("\\COMTestClient.exe.manifest"); 
+    strManifest += _T("\\COMTestClient.exe.manifest"); // Path of Activation Manifest
 
     CoInitialize(NULL);
 
-// Create an Activation Context structure
-	ACTCTX actctx;
-	ZeroMemory(&actctx, sizeof(actctx));
-	actctx.cbSize = sizeof(actctx);
-	actctx.lpSource = strManifest; // For Example, “c:\\myapp\\Sample.Manifest”
+    // Create an Activation Context structure
+    ACTCTX actctx;
+    ZeroMemory(&actctx, sizeof(actctx));
+    actctx.cbSize = sizeof(actctx);
+    actctx.lpSource = strManifest; // Give complete path to the Activation Manifest
 
-	HANDLE pActCtx = CreateActCtx(&actctx);
-	if(pActCtx == INVALID_HANDLE_VALUE)	{	Error(_T("CreateActCtx"));	return -1;	}
+    HANDLE pActCtx = CreateActCtx(&actctx);
+    if(pActCtx == INVALID_HANDLE_VALUE)	{	Error(_T("CreateActCtx"));	return -1;	}
 
-	ULONG_PTR lpCookie;
-	if(!ActivateActCtx(pActCtx, &lpCookie))	{ Error(_T("ActivateActCtx")); return -1; }
+    ULONG_PTR lpCookie;
+    if(!ActivateActCtx(pActCtx, &lpCookie))	{ Error(_T("ActivateActCtx")); return -1; }
 
     IPhTranslator* pTranslator = NULL;
 
@@ -59,6 +59,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
     CoUninitialize();   
 
-	return 0;
+    return 0;
 }
 

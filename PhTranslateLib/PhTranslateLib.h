@@ -69,7 +69,7 @@ extern "C"
     //  [out] szOutput: The Translated String in Unicode representation
     //  [in]  nLen: Max no.of wide chars to be filled. szOutput[nLen-1] will be '\0' if the buffer is small.
     //  [return] Returns the length of the full converted string. szOutput might be holding only a fraction of it, if nLen is small.
-    //  Remarks: Send szInput as NULL and to get the required length of the buffer.
+    //  Remarks: Send szOutput as NULL and to get the required length of the buffer.
     PHTRANSLATELIB_API int Translate(void* Translator, const char* szInput, 
                                       wchar_t* szOutput, const int nLen);
 
@@ -81,7 +81,7 @@ extern "C"
     //  [out] szOutput: The Translated String in Unicode representation
     //  [in]  nLen: Max no.of wide chars to be filled. szOutput[nLen-1] will be '\0' if the buffer is small.
     //  [return] Returns the length of the full converted string. szOutput might be holding only a fraction of it, if nLen is small.
-    //  Remarks: Send szInput as NULL and to get the required length of the buffer.
+    //  Remarks: Send szOutput as NULL and to get the required length of the buffer.
     PHTRANSLATELIB_API int TranslateW(void* Translator, const wchar_t* szInput, 
                                       wchar_t* szOutput, const int nLen);
 

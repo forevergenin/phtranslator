@@ -13,59 +13,59 @@ namespace DotNetTestApp
 {
     public partial class Form1 : Form
     {
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr GetTeluguTranslator();
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr GetTeluguTranslator();
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr GetBengaliTranslator();
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr GetBengaliTranslator();
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr GetGujaratiTranslator();
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr GetGujaratiTranslator();
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr GetHindiTranslator();
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr GetHindiTranslator();
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr GetKannadaTranslator();
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr GetKannadaTranslator();
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr GetMalayalamTranslator();
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr GetMalayalamTranslator();
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr GetPunjabiTranslator();
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr GetPunjabiTranslator();
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr GetOriyaTranslator();
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr GetOriyaTranslator();
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr GetSanskritTranslator();
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr GetSanskritTranslator();
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr GetTamilTranslator();
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr GetTamilTranslator();
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern IntPtr CreateCustomTranslator([MarshalAs(UnmanagedType.LPStr)] String szPhoneticTableFilePath);
+    [DllImport("PhTranslateLib.dll")]
+    public static extern IntPtr CreateCustomTranslator([MarshalAs(UnmanagedType.LPStr)] String szPhoneticTableFilePath);
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern void ReleaseCustomTranslator(IntPtr Translator);
+    [DllImport("PhTranslateLib.dll")]
+    public static extern void ReleaseCustomTranslator(IntPtr Translator);
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern int Translate(IntPtr Translator, [MarshalAs(UnmanagedType.LPStr)] String szInput, [MarshalAs(UnmanagedType.LPWStr)] StringBuilder szOutput, int nLen);
-        
-        [DllImport("PhTranslateLib.dll")]
-        public static extern int TranslateW(IntPtr Translator, [MarshalAs(UnmanagedType.LPWStr)] String szInput, [MarshalAs(UnmanagedType.LPWStr)] StringBuilder szOutput, int nLen);
-        
-        [DllImport("PhTranslateLib.dll")]
-         public static extern int GetTranslatedBufferLength(IntPtr Translator, [MarshalAs(UnmanagedType.LPStr)] String szInput, ref IntPtr ppHint);
+    [DllImport("PhTranslateLib.dll")]
+    public static extern int Translate(IntPtr Translator, [MarshalAs(UnmanagedType.LPStr)] String szInput, [MarshalAs(UnmanagedType.LPWStr)] StringBuilder szOutput, int nLen);
+    
+    [DllImport("PhTranslateLib.dll")]
+    public static extern int TranslateW(IntPtr Translator, [MarshalAs(UnmanagedType.LPWStr)] String szInput, [MarshalAs(UnmanagedType.LPWStr)] StringBuilder szOutput, int nLen);
+    
+    [DllImport("PhTranslateLib.dll")]
+     public static extern int GetTranslatedBufferLength(IntPtr Translator, [MarshalAs(UnmanagedType.LPStr)] String szInput, ref IntPtr ppHint);
 
-        [DllImport("PhTranslateLib.dll")]
-         public static extern int GetTranslatedBufferLengthW(IntPtr Translator, [MarshalAs(UnmanagedType.LPWStr)] String szInput, ref IntPtr ppHint);
+    [DllImport("PhTranslateLib.dll")]
+     public static extern int GetTranslatedBufferLengthW(IntPtr Translator, [MarshalAs(UnmanagedType.LPWStr)] String szInput, ref IntPtr ppHint);
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern void GetTranslatedBuffer([MarshalAs(UnmanagedType.LPWStr)] StringBuilder szOutput, ref System.IntPtr ppHint);
+    [DllImport("PhTranslateLib.dll")]
+    public static extern void GetTranslatedBuffer([MarshalAs(UnmanagedType.LPWStr)] StringBuilder szOutput, ref System.IntPtr ppHint);
 
-        [DllImport("PhTranslateLib.dll")]
-        public static extern bool SavePhoneticTable(IntPtr Translator, [MarshalAs(UnmanagedType.LPStr)] String szFilePath);
+    [DllImport("PhTranslateLib.dll")]
+    public static extern bool SavePhoneticTable(IntPtr Translator, [MarshalAs(UnmanagedType.LPStr)] String szFilePath);
 
         public Form1()
         {
