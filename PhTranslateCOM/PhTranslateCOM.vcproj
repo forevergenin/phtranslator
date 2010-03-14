@@ -312,6 +312,7 @@
 				MkTypLibCompatible="false"
 				TargetEnvironment="1"
 				GenerateStublessProxies="true"
+				TypeLibraryName="$(IntDir)/PhTranslateCOM.tlb"
 				HeaderFileName="PhTranslateCOM_i.h"
 				DLLDataFileName=""
 				InterfaceIdentifierFileName="PhTranslateCOM_i.c"
@@ -357,9 +358,6 @@
 			/>
 			<Tool
 				Name="VCManifestTool"
-				AssemblyIdentity="$(ProjectName), type=win32, version=1.0.0.0"
-				TypeLibraryFile="$(IntDir)/$(ProjectName).tlb"
-				ComponentFileName="$(ProjectName).dll"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -734,50 +732,6 @@
 			<File
 				RelativePath=".\PhTranslateCOM_i.h"
 				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-						Description="Copying $(InputPath) to $(OutDir)\"
-						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(OutDir)\&quot;"
-						AdditionalDependencies="$(InputPath)"
-						Outputs="$(OutDir)\$(InputFileName)"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-						Description="Copying $(InputPath) to $(OutDir)\"
-						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(OutDir)\&quot;"
-						AdditionalDependencies="$(InputPath)"
-						Outputs="$(OutDir)\$(InputFileName)"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Static Debug|Win32"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-						Description="Copying $(InputPath) to $(OutDir)\"
-						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(OutDir)\&quot;"
-						AdditionalDependencies="$(InputPath)"
-						Outputs="$(OutDir)\$(InputFileName)"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Static Release|Win32"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-						Description="Copying $(InputPath) to $(OutDir)\"
-						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(OutDir)\&quot;"
-						AdditionalDependencies="$(InputPath)"
-						Outputs="$(OutDir)\$(InputFileName)"
-					/>
-				</FileConfiguration>
 			</File>
 		</Filter>
 		<Filter
