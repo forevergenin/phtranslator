@@ -22,9 +22,7 @@ FORMS += mainwindow.ui \
     testdialog.ui
 SOURCES += main.cpp \
     mainwindow.cpp \
-    debug/qrc_textedit.cpp \
     qtc-gdbmacros/gdbmacros.cpp \
-    release/qrc_textedit.cpp \
     cphonetictableitem.cpp \
     charentrydialog.cpp \
     testdialog.cpp \
