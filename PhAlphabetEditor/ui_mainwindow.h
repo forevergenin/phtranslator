@@ -1,10 +1,10 @@
 /********************************************************************************
-** Form generated from reading ui file 'mainwindow.ui'
+** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed Apr 15 23:23:49 2009
-**      by: Qt User Interface Compiler version 4.5.0
+** Created: Sat Jun 19 11:29:57 2010
+**      by: Qt User Interface Compiler version 4.6.2
 **
-** WARNING! All changes made in this file will be lost when recompiling ui file!
+** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
 #ifndef UI_MAINWINDOW_H
@@ -70,13 +70,13 @@ public:
         actionOpen = new QAction(MainWindowClass);
         actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
         QIcon icon;
-        icon.addPixmap(QPixmap(QString::fromUtf8(":/images/win/fileopen.png")), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("../PhWordpad/images/win/fileopen.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionOpen->setIcon(icon);
         actionOpen->setShortcutContext(Qt::ApplicationShortcut);
         action_Save = new QAction(MainWindowClass);
         action_Save->setObjectName(QString::fromUtf8("action_Save"));
         QIcon icon1;
-        icon1.addPixmap(QPixmap(QString::fromUtf8(":/images/win/filesave.png")), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8("../PhWordpad/images/win/filesave.png"), QSize(), QIcon::Normal, QIcon::Off);
         action_Save->setIcon(icon1);
         action_Save->setShortcutContext(Qt::ApplicationShortcut);
         actionAbout = new QAction(MainWindowClass);
@@ -87,7 +87,7 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         verticalLayout = new QVBoxLayout(centralWidget);
         verticalLayout->setSpacing(6);
-        verticalLayout->setMargin(11);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         frame_2 = new QFrame(centralWidget);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
@@ -95,14 +95,14 @@ public:
         frame_2->setFrameShadow(QFrame::Raised);
         formLayout = new QFormLayout(frame_2);
         formLayout->setSpacing(6);
-        formLayout->setMargin(11);
+        formLayout->setContentsMargins(11, 11, 11, 11);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         frame = new QFrame(frame_2);
         frame->setObjectName(QString::fromUtf8("frame"));
         gridLayout = new QGridLayout(frame);
         gridLayout->setSpacing(6);
-        gridLayout->setMargin(0);
+        gridLayout->setContentsMargins(0, 0, 0, 0);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setHorizontalSpacing(6);
         gridLayout->setVerticalSpacing(0);
@@ -169,7 +169,7 @@ public:
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 654, 23));
+        menuBar->setGeometry(QRect(0, 0, 654, 26));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menu_Help = new QMenu(menuBar);

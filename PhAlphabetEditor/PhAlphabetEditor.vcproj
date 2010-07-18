@@ -4,8 +4,8 @@
 	Version="9.00"
 	Name="PhAlphabetEditor"
 	ProjectGUID="{AD8362FD-D4FE-4DAD-87F5-B15C14646832}"
-	RootNamespace="PhTableEditor"
-	Keyword="MakeFileProj"
+	RootNamespace="PhAlphabetEditor"
+	Keyword="Qt4VSv1.0"
 	TargetFrameworkVersion="0"
 	>
 	<Platforms>
@@ -18,62 +18,183 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="Debug"
-			IntermediateDirectory="Debug"
-			ConfigurationType="0"
+			OutputDirectory="."
+			IntermediateDirectory="debug\"
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
 			>
 			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake debug"
-				ReBuildCommandLine="qmake -project&#x0D;&#x0A;qmake&#x0D;&#x0A;nmake clean&#x0D;&#x0A;nmake debug"
-				CleanCommandLine="nmake clean"
-				Output="$(OutDir)\$(ProjectName).exe"
-				PreprocessorDefinitions="WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS"
-				IncludeSearchPath="..\PhTranslateLib"
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				WarningLevel="0"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -w34100 -w34189"
+				Optimization="4"
+				AdditionalIncludeDirectories="&quot;..\..\..\Qt\2010.02.1\qt\include\QtCore&quot;,&quot;..\..\..\Qt\2010.02.1\qt\include\QtGui&quot;,&quot;..\..\..\Qt\2010.02.1\qt\include&quot;,&quot;.&quot;,&quot;..\PhTranslateLib&quot;,&quot;..\..\..\Qt\2010.02.1\qt\include\ActiveQt&quot;,&quot;debug&quot;,&quot;.&quot;,..\..\..\Qt\2010.02.1\qt\mkspecs\default"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+				GeneratePreprocessedFile="0"
+				ExceptionHandling="1"
+				RuntimeLibrary="3"
+				BufferSecurityCheck="false"
+				TreatWChar_tAsBuiltInType="false"
+				RuntimeTypeInfo="true"
+				AssemblerListingLocation="debug\"
+				ObjectFile="debug\"
+				ProgramDataBaseFileName=".\"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,_DEBUG"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="true"
+				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
+				AdditionalDependencies="c:\Qt\2010.02.1\qt\lib\qtmaind.lib c:\Qt\2010.02.1\qt\lib\QtGuid4.lib c:\Qt\2010.02.1\qt\lib\QtCored4.lib"
+				OutputFile="debug\PhAlphabetEditor.exe"
+				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories="c:\Qt\2010.02.1\qt\lib"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile=""
+				SubSystem="2"
+				LinkTimeCodeGeneration="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="Release"
-			IntermediateDirectory="Release"
-			ConfigurationType="0"
+			OutputDirectory="."
+			IntermediateDirectory="release\"
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
 			>
 			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake release"
-				ReBuildCommandLine="qmake -project&#x0D;&#x0A;qmake&#x0D;&#x0A;nmake clean&#x0D;&#x0A;nmake release"
-				CleanCommandLine="nmake clean"
-				Output="$(OutDir)\$(ProjectName).exe"
-				PreprocessorDefinitions="WIN32;NDEBUG;"
-				IncludeSearchPath=""
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
+				Name="VCPreBuildEventTool"
 			/>
-		</Configuration>
-		<Configuration
-			Name="Static Debug|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="0"
-			>
 			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake debug"
-				ReBuildCommandLine="qmake -project&#x0D;&#x0A;qmake&#x0D;&#x0A;nmake clean&#x0D;&#x0A;nmake debug"
-				CleanCommandLine="nmake clean"
-				Output="$(OutDir)\$(ProjectName).exe"
-				PreprocessorDefinitions="WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS"
-				IncludeSearchPath="..\PhTranslateLib"
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				WarningLevel="0"
+				DefaultCharType="0"
+				EnableErrorChecks="1"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="-Zm200 -w34100 -w34189 -w34100 -w34189"
+				Optimization="2"
+				AdditionalIncludeDirectories="&quot;..\..\..\Qt\2010.02.1\qt\include\QtCore&quot;,&quot;..\..\..\Qt\2010.02.1\qt\include\QtGui&quot;,&quot;..\..\..\Qt\2010.02.1\qt\include&quot;,&quot;.&quot;,&quot;..\PhTranslateLib&quot;,&quot;..\..\..\Qt\2010.02.1\qt\include\ActiveQt&quot;,&quot;release&quot;,&quot;.&quot;,..\..\..\Qt\2010.02.1\qt\mkspecs\default"
+				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT,NDEBUG"
+				GeneratePreprocessedFile="0"
+				ExceptionHandling="1"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="false"
+				TreatWChar_tAsBuiltInType="false"
+				RuntimeTypeInfo="true"
+				AssemblerListingLocation="release\"
+				ObjectFile="release\"
+				ProgramDataBaseFileName=".\"
+				WarningLevel="3"
+				SuppressStartupBanner="true"
+				DebugInformationFormat="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_GUI_LIB,QT_CORE_LIB,QT_THREAD_SUPPORT"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="true"
+				AdditionalOptions="&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot;"
+				AdditionalDependencies="c:\Qt\2010.02.1\qt\lib\qtmain.lib c:\Qt\2010.02.1\qt\lib\QtGui4.lib c:\Qt\2010.02.1\qt\lib\QtCore4.lib"
+				OutputFile="release\PhAlphabetEditor.exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories="c:\Qt\2010.02.1\qt\lib"
+				GenerateDebugInformation="false"
+				ProgramDatabaseFile=""
+				SubSystem="2"
+				LinkTimeCodeGeneration="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 	</Configurations>
@@ -81,92 +202,28 @@
 	</References>
 	<Files>
 		<Filter
-			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
-			<File
-				RelativePath=".\charentrydialog.h"
-				>
-			</File>
-			<File
-				RelativePath=".\cphonetictableitem.h"
-				>
-			</File>
-			<File
-				RelativePath="..\PhTranslateLib\LanguageCodes.h"
-				>
-			</File>
-			<File
-				RelativePath=".\mainwindow.h"
-				>
-			</File>
-			<File
-				RelativePath="..\PhTranslateLib\PhTranslator.h"
-				>
-			</File>
-			<File
-				RelativePath=".\testdialog.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ui_charentrydialog.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ui_mainwindow.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ui_testdialog.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
-			>
-			<File
-				RelativePath=".\charentrydialog.ui"
-				>
-			</File>
-			<File
-				RelativePath=".\mainwindow.ui"
-				>
-			</File>
-			<File
-				RelativePath=".\testdialog.ui"
-				>
-			</File>
-		</Filter>
-		<Filter
 			Name="Source Files"
-			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\charentrydialog.cpp"
+				RelativePath="charentrydialog.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\cphonetictableitem.cpp"
+				RelativePath="cphonetictableitem.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\qtc-gdbmacros\gdbmacros.cpp"
+				RelativePath="qtc-gdbmacros\gdbmacros.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\main.cpp"
+				RelativePath="main.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\mainwindow.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\debug\moc_mainwindow.cpp"
+				RelativePath="mainwindow.cpp"
 				>
 			</File>
 			<File
@@ -174,12 +231,279 @@
 				>
 			</File>
 			<File
-				RelativePath=".\debug\qrc_textedit.cpp"
+				RelativePath="testdialog.cpp"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
+			<File
+				RelativePath="charentrydialog.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC charentrydialog.h"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtCore&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtGui&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include&quot; -I&quot;.&quot; -I&quot;..\PhTranslateLib&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\ActiveQt&quot; -I&quot;debug&quot; -I&quot;.&quot; -I..\..\..\Qt\2010.02.1\qt\mkspecs\default -D_MSC_VER=1500 -DWIN32 charentrydialog.h -o debug\moc_charentrydialog.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\moc.exe;charentrydialog.h"
+						Outputs="debug\moc_charentrydialog.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC charentrydialog.h"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtCore&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtGui&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include&quot; -I&quot;.&quot; -I&quot;..\PhTranslateLib&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\ActiveQt&quot; -I&quot;release&quot; -I&quot;.&quot; -I..\..\..\Qt\2010.02.1\qt\mkspecs\default -D_MSC_VER=1500 -DWIN32 charentrydialog.h -o release\moc_charentrydialog.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\moc.exe;charentrydialog.h"
+						Outputs="release\moc_charentrydialog.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="cphonetictableitem.h"
 				>
 			</File>
 			<File
-				RelativePath=".\testdialog.cpp"
+				RelativePath="..\PhTranslateLib\LanguageCodes.h"
 				>
+			</File>
+			<File
+				RelativePath="mainwindow.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC mainwindow.h"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtCore&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtGui&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include&quot; -I&quot;.&quot; -I&quot;..\PhTranslateLib&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\ActiveQt&quot; -I&quot;debug&quot; -I&quot;.&quot; -I..\..\..\Qt\2010.02.1\qt\mkspecs\default -D_MSC_VER=1500 -DWIN32 mainwindow.h -o debug\moc_mainwindow.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\moc.exe;mainwindow.h"
+						Outputs="debug\moc_mainwindow.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC mainwindow.h"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtCore&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtGui&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include&quot; -I&quot;.&quot; -I&quot;..\PhTranslateLib&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\ActiveQt&quot; -I&quot;release&quot; -I&quot;.&quot; -I..\..\..\Qt\2010.02.1\qt\mkspecs\default -D_MSC_VER=1500 -DWIN32 mainwindow.h -o release\moc_mainwindow.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\moc.exe;mainwindow.h"
+						Outputs="release\moc_mainwindow.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\PhTranslateLib\PhTranslator.h"
+				>
+			</File>
+			<File
+				RelativePath="testdialog.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC testdialog.h"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtCore&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtGui&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include&quot; -I&quot;.&quot; -I&quot;..\PhTranslateLib&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\ActiveQt&quot; -I&quot;debug&quot; -I&quot;.&quot; -I..\..\..\Qt\2010.02.1\qt\mkspecs\default -D_MSC_VER=1500 -DWIN32 testdialog.h -o debug\moc_testdialog.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\moc.exe;testdialog.h"
+						Outputs="debug\moc_testdialog.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC testdialog.h"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtCore&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\QtGui&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include&quot; -I&quot;.&quot; -I&quot;..\PhTranslateLib&quot; -I&quot;..\..\..\Qt\2010.02.1\qt\include\ActiveQt&quot; -I&quot;release&quot; -I&quot;.&quot; -I..\..\..\Qt\2010.02.1\qt\mkspecs\default -D_MSC_VER=1500 -DWIN32 testdialog.h -o release\moc_testdialog.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\moc.exe;testdialog.h"
+						Outputs="release\moc_testdialog.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Generated Files"
+			Filter="cpp;c;cxx;moc;h;def;odl;idl;res;"
+			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}"
+			>
+			<File
+				RelativePath="release\moc_charentrydialog.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_charentrydialog.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="release\moc_mainwindow.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_mainwindow.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_testdialog.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="release\moc_testdialog.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="ui_charentrydialog.h"
+				>
+			</File>
+			<File
+				RelativePath="ui_mainwindow.h"
+				>
+			</File>
+			<File
+				RelativePath="ui_testdialog.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Form Files"
+			Filter="ui"
+			UniqueIdentifier="{99349809-55BA-4b9d-BF79-8FDBB0286EB3}"
+			ParseFiles="false"
+			>
+			<File
+				RelativePath="charentrydialog.ui"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC charentrydialog.ui"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\uic.exe charentrydialog.ui -o ui_charentrydialog.h&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\uic.exe;charentrydialog.ui"
+						Outputs="ui_charentrydialog.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC charentrydialog.ui"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\uic.exe charentrydialog.ui -o ui_charentrydialog.h&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\uic.exe;charentrydialog.ui"
+						Outputs="ui_charentrydialog.h"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="mainwindow.ui"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC mainwindow.ui"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\uic.exe mainwindow.ui -o ui_mainwindow.h&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\uic.exe;mainwindow.ui"
+						Outputs="ui_mainwindow.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC mainwindow.ui"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\uic.exe mainwindow.ui -o ui_mainwindow.h&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\uic.exe;mainwindow.ui"
+						Outputs="ui_mainwindow.h"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="testdialog.ui"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC testdialog.ui"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\uic.exe testdialog.ui -o ui_testdialog.h&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\uic.exe;testdialog.ui"
+						Outputs="ui_testdialog.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="UIC testdialog.ui"
+						CommandLine="C:\Qt\2010.02.1\qt\bin\uic.exe testdialog.ui -o ui_testdialog.h&#x0D;&#x0A;"
+						AdditionalDependencies="C:\Qt\2010.02.1\qt\bin\uic.exe;testdialog.ui"
+						Outputs="ui_testdialog.h"
+					/>
+				</FileConfiguration>
 			</File>
 		</Filter>
 	</Files>

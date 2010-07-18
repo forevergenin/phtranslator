@@ -138,6 +138,18 @@
       <attribute name="verticalHeaderMinimumSectionSize">
        <number>64</number>
       </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>72</number>
+      </attribute>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>64</number>
+      </attribute>
+      <attribute name="verticalHeaderMinimumSectionSize">
+       <number>64</number>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>72</number>
+      </attribute>
       <row/>
       <row/>
       <row/>
@@ -172,7 +184,7 @@
      <x>0</x>
      <y>0</y>
      <width>654</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -216,7 +228,7 @@
   <action name="actionOpen">
    <property name="icon">
     <iconset>
-     <normaloff>:/images/win/fileopen.png</normaloff>:/images/win/fileopen.png</iconset>
+     <normaloff>../PhWordpad/images/win/fileopen.png</normaloff>../PhWordpad/images/win/fileopen.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Open</string>
@@ -231,7 +243,7 @@
   <action name="action_Save">
    <property name="icon">
     <iconset>
-     <normaloff>:/images/win/filesave.png</normaloff>:/images/win/filesave.png</iconset>
+     <normaloff>../PhWordpad/images/win/filesave.png</normaloff>../PhWordpad/images/win/filesave.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Save</string>

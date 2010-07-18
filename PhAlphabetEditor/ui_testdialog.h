@@ -1,10 +1,10 @@
 /********************************************************************************
-** Form generated from reading ui file 'testdialog.ui'
+** Form generated from reading UI file 'testdialog.ui'
 **
-** Created: Tue Apr 7 20:55:35 2009
-**      by: Qt User Interface Compiler version 4.5.0
+** Created: Sat Jun 19 10:42:19 2010
+**      by: Qt User Interface Compiler version 4.6.2
 **
-** WARNING! All changes made in this file will be lost when recompiling ui file!
+** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
 #ifndef UI_TESTDIALOG_H
@@ -85,7 +85,6 @@ public:
         groupBox->setTitle(QApplication::translate("TestDialog", "GroupBox", 0, QApplication::UnicodeUTF8));
         lineEdit_Input->setText(QApplication::translate("TestDialog", "Type here ", 0, QApplication::UnicodeUTF8));
         pushButton_Translate->setText(QApplication::translate("TestDialog", "&Translate", 0, QApplication::UnicodeUTF8));
-        Q_UNUSED(TestDialog);
     } // retranslateUi
 
 };
