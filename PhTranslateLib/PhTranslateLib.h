@@ -4,10 +4,12 @@
 // that uses this DLL. This way any other project whose source files include this file see 
 // PHTRANSLATELIB_API functions as being imported from a DLL, whereas this DLL sees symbols
 // defined with this macro as being exported.
+#ifndef PHTRANSLATELIB_API
 #ifdef PHTRANSLATELIB_EXPORTS
 #define PHTRANSLATELIB_API __declspec(dllexport)
 #else
 #define PHTRANSLATELIB_API __declspec(dllimport)
+#endif
 #endif
 
 #include <string>
