@@ -12,7 +12,7 @@ using namespace PhTranslation;
 #endif 
 
 template<typename T>
-inline int TranslateT(void* Translator, const T szInput, std::wstring& retStr)
+inline size_t TranslateT(void* Translator, const T szInput, std::wstring& retStr)
 {
 	PhTranslator* pTranslator = (PhTranslator*) Translator;
 	if(pTranslator != NULL && szInput != NULL)
@@ -31,7 +31,7 @@ inline int TranslateT(void* Translator, const T szInput, std::wstring& retStr)
 //  [out] szOutput: The Translated String in Unicode representation
 //  [in]  nLen: Maximum number of wide characters to be filled in szOutput
 template<typename T>
-inline int TranslateT(void* Translator, const T szInput, 
+inline size_t TranslateT(void* Translator, const T szInput, 
                                   wchar_t* szOutput, const int nLen)
 {
     std::wstring retStr;
@@ -54,7 +54,7 @@ inline int TranslateT(void* Translator, const T szInput,
 //  [in]  szInput: The Phonetic English String that is to be translated
 //  [Out] ppHint: Returns a Hint object pointer that can be used to retrieve the translated buffer later
 template<typename T>
-inline int GetTranslatedBufferLengthT(void* Translator, const T szInput, void** ppHint)
+inline size_t GetTranslatedBufferLengthT(void* Translator, const T szInput, void** ppHint)
 {
 	std::wstring* pRetStr = new std::wstring();	// Allocate a string on heap. Will be released in GetTranslatedBuffer() later.
 
@@ -220,24 +220,24 @@ extern "C"
             delete pTranslator;
     }
 
-    PHTRANSLATELIB_API int Translate(void* Translator, const char* szInput, 
+    PHTRANSLATELIB_API size_t Translate(void* Translator, const char* szInput, 
                                       wchar_t* szOutput, const int nLen)
     {
 		return TranslateT(Translator, szInput, szOutput, nLen);
     }
 
-    PHTRANSLATELIB_API int TranslateW(void* Translator, const wchar_t* szInput, 
+    PHTRANSLATELIB_API size_t TranslateW(void* Translator, const wchar_t* szInput, 
                                       wchar_t* szOutput, const int nLen)
     {
 		return TranslateT(Translator, szInput, szOutput, nLen);
     }
 
-    PHTRANSLATELIB_API int GetTranslatedBufferLength(void* Translator, const char* szInput, void** ppHint)
+    PHTRANSLATELIB_API size_t GetTranslatedBufferLength(void* Translator, const char* szInput, void** ppHint)
 	{
 		return GetTranslatedBufferLengthT(Translator, szInput, ppHint);
 	}
 
-    PHTRANSLATELIB_API int GetTranslatedBufferLengthW(void* Translator, const wchar_t* szInput, void** ppHint)
+    PHTRANSLATELIB_API size_t GetTranslatedBufferLengthW(void* Translator, const wchar_t* szInput, void** ppHint)
 	{
 		return GetTranslatedBufferLengthT(Translator, szInput, ppHint);
 	}
@@ -272,12 +272,12 @@ extern "C"
 
 
 
-PHTRANSLATELIB_API int Translate(void* Translator, const char* szInput, std::wstring& retStr)
+PHTRANSLATELIB_API size_t Translate(void* Translator, const char* szInput, std::wstring& retStr)
 {
 	return TranslateT(Translator, szInput, retStr);
 }
 
-PHTRANSLATELIB_API int Translate(void* Translator, const wchar_t* szInput, std::wstring& retStr)
+PHTRANSLATELIB_API size_t Translate(void* Translator, const wchar_t* szInput, std::wstring& retStr)
 {
 	return TranslateT(Translator, szInput, retStr);
 }

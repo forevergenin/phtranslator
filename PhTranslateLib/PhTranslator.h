@@ -106,7 +106,7 @@ namespace PhTranslation
 		// Return value indicates the length of the new Unicode string generated as the result of translation.
 		//		If retStr is empty on entry, return value would be same as the length of retStr upon return.
 		//		If retStr is non-empty on entry, return value just indicates the length of the portion newly added, not the total string.
-        int Translate(const char* sz, std::wstring& retStr) const;
+        size_t Translate(const char* sz, std::wstring& retStr) const;
 
         // Translates the given English string Phonetically.
 		// If the input contains any Unicode characters already, they will be inserted into the output string as is.
@@ -119,7 +119,7 @@ namespace PhTranslation
 		// Return value indicates the length of the new Unicode string generated as the result of translation.
 		//		If retStr is empty on entry, return value would be same as the length of retStr upon return.
 		//		If retStr is non-empty on entry, return value just indicates the length of the portion newly added, not the total string.
-        int Translate(const wchar_t* sz, std::wstring& retStr) const;
+        size_t Translate(const wchar_t* sz, std::wstring& retStr) const;
 
     };
 

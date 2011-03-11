@@ -14,7 +14,6 @@
 #endif
 #else // Compile PhTranslateLib as Static lib
 #define PHTRANSLATELIB_API
-#pragma message("----------Defining PHTRANSLATELIB_API to be Empty---------")
 #endif
 
 #include <string>
@@ -77,7 +76,7 @@ extern "C"
     //  [in]  nLen: Max no.of wide chars to be filled. szOutput[nLen-1] will be '\0' if the buffer is small.
     //  [return] Returns the length of the full converted string. szOutput might be holding only a fraction of it, if nLen is small.
     //  Remarks: Send szInput as NULL and to get the required length of the buffer.
-    PHTRANSLATELIB_API int Translate(void* Translator, const char* szInput, 
+    PHTRANSLATELIB_API size_t Translate(void* Translator, const char* szInput, 
                                       wchar_t* szOutput, const int nLen);
 
     // Translates the given Phonetic English string.If the string contains non-Ascii characters they will be 
@@ -89,7 +88,7 @@ extern "C"
     //  [in]  nLen: Max no.of wide chars to be filled. szOutput[nLen-1] will be '\0' if the buffer is small.
     //  [return] Returns the length of the full converted string. szOutput might be holding only a fraction of it, if nLen is small.
     //  Remarks: Send szInput as NULL and to get the required length of the buffer.
-    PHTRANSLATELIB_API int TranslateW(void* Translator, const wchar_t* szInput, 
+    PHTRANSLATELIB_API size_t TranslateW(void* Translator, const wchar_t* szInput, 
                                       wchar_t* szOutput, const int nLen);
 
     // Translates the given string and returns the required buffer size to be allocated to hold the output.
@@ -99,7 +98,7 @@ extern "C"
     //  [in]  Translator: This must be a value returned by one of the GetTranslator methods or the CreateCustomTranslator method
     //  [in]  szInput: The Phonetic English String that is to be translated
 	//  [Out] ppHint: Returns a Hint object pointer that can be used to retrieve the translated buffer later
-    PHTRANSLATELIB_API int GetTranslatedBufferLength(void* Translator, const char* szInput, void** ppHint);
+    PHTRANSLATELIB_API size_t GetTranslatedBufferLength(void* Translator, const char* szInput, void** ppHint);
 
     // Translates the given string and returns the required buffer size to be allocated to hold the output.
 	// You can directly use the return value to allocate the buffer size as wchar_t* psz = new wchar_t[GetTranslatedBufferLengthW(...)];
@@ -108,7 +107,7 @@ extern "C"
     //  [in]  Translator: This must be a value returned by one of the GetTranslator methods or the CreateCustomTranslator method
     //  [in]  szInput: The Phonetic English String that is to be translated
 	//  [Out] ppHint: Returns a Hint object pointer that can be used to retrieve the translated buffer later
-    PHTRANSLATELIB_API int GetTranslatedBufferLengthW(void* Translator, const wchar_t* szInput, void** ppHint);
+    PHTRANSLATELIB_API size_t GetTranslatedBufferLengthW(void* Translator, const wchar_t* szInput, void** ppHint);
 
     // Retrieves the translatedand buffer previously computed with GetTranslatedBufferLength/GetTranslatedBufferLengthW method.
 	// Upon success, the Hint object will be reset to NULL to restrict its further usage.
@@ -136,7 +135,7 @@ extern "C"
 // Return value indicates the length of the new Unicode string generated as the result of translation.
 //		If retStr is empty on entry, return value would be same as the length of retStr upon return.
 //		If retStr is non-empty on entry, return value just indicates the length of the portion newly added, not the total string.
-PHTRANSLATELIB_API int Translate(void* Translator, const char* szInput, std::wstring& retStr);
+PHTRANSLATELIB_API size_t Translate(void* Translator, const char* szInput, std::wstring& retStr);
 
 // Translates the given Phonetic English string. If the string contains non-Ascii characters they will be 
 // inserted into the output string as is.
@@ -149,7 +148,7 @@ PHTRANSLATELIB_API int Translate(void* Translator, const char* szInput, std::wst
 // Return value indicates the length of the new Unicode string generated as the result of translation.
 //		If retStr is empty on entry, return value would be same as the length of retStr upon return.
 //		If retStr is non-empty on entry, return value just indicates the length of the portion newly added, not the total string.
-PHTRANSLATELIB_API int Translate(void* Translator, const wchar_t* szInput, std::wstring& retStr);
+PHTRANSLATELIB_API size_t Translate(void* Translator, const wchar_t* szInput, std::wstring& retStr);
 
 // Translates the given Phonetic English string.
 // Parameters:
